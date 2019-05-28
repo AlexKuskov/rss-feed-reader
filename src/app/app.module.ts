@@ -3,10 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { ChannelsComponent } from './components/channels/channels.component';
+import { ChannelItemsComponent } from './components/channel-items/channel-items.component';
+import { ItemContentComponent } from './components/item-content/item-content.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChannelsComponent,
+    ChannelItemsComponent,
+    ItemContentComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
