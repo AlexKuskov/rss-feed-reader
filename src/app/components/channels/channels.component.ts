@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChannelsService } from '../../services/channels.service'
 
 @Component({
   selector: 'app-channels',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./channels.component.scss']
 })
 export class ChannelsComponent implements OnInit {
+  //channelInfo:ChannelInfo[];
 
-  constructor() { }
+  constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
+    // for (let i = 0; i < 10; i++) {
+    //   this.channelsService.testFunc()[i].subscribe(result => {
+    //     console.log(result);
+    //   });
+      
+    // }
+
+    console.log(this.channelsService.testFunc());
+    
   }
+
+  //channel image, channel title
 
 }
