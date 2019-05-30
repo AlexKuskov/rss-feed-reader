@@ -10,6 +10,8 @@ import { ItemContentComponent } from './components/item-content/item-content.com
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ChannelsService } from './services/channels.service';
 
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { ChannelsService } from './services/channels.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [ChannelsService],
   bootstrap: [AppComponent]

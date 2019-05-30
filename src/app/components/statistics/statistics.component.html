@@ -5,5 +5,17 @@
         <div>Notifications: 40</div>
         <div>Authours: 37</div> 
     </div>
-    <div class="pie-chart"></div>
+    
+    <div class="pie-container">
+        <div class="pie-chart">
+            <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+        </div>
+    </div>
+    
 </div>
