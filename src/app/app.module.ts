@@ -8,6 +8,7 @@ import { ChannelsComponent } from './components/channels/channels.component';
 import { ChannelItemsComponent } from './components/channel-items/channel-items.component';
 import { ItemContentComponent } from './components/item-content/item-content.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ChannelsService } from './services/channels.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,9 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ChannelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

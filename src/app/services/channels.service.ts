@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { ChannelInfo } from '../models/ChannelInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -25,20 +26,43 @@ export class ChannelsService {
 
   xmlToJsonConverter:string = "https://rss2json.com/api.json?rss_url=";
 
-  channelsArr: Array<Object> = [];
+  //channelsArr: Array<Object> = this.getAllChannelData();
 
   constructor(private http: HttpClient) { }
 
-  //TODO: add Observable with JSON object
-  testFunc() {
+  channels: Array<any> = [];
+
+  getAllChannelData() {
+    //let tempArrItem:Object = {};
+
     for (let channelListItem of this.channelList) {
       this.http.get(this.xmlToJsonConverter + channelListItem)
       .pipe(
         catchError(this.errorHandler)
-      ).subscribe(data => this.channelsArr.push(data));
+      ).subscribe(response => {
+        //console.log(response);
+        this.channels.push(response)
+        //tempArrItem = response;
+      });
+      //console.log(tempArrItem);
+      //this.channels.push(tempArrItem);
     }
 
-    return this.channelsArr;
+    // for (let channelListItem of this.channelList) {
+    //   this.channels.push({
+    //     one: 'one',
+    //     two: 'two'
+    //   });
+    // }
+
+    return this.channels;
+  }
+
+  getChannelDataById(i: number) {
+    return this.http.get(this.xmlToJsonConverter + this.channelList[i])
+    .pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   errorHandler(error: HttpErrorResponse) {

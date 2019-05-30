@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChannelItemData } from '../../models/ChannelItemData'
 
 @Component({
   selector: 'app-channel-items',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChannelItemsComponent implements OnInit {
 
+  channelItemData:ChannelItemData[];
+
   constructor() { }
 
   ngOnInit() {
+    //add channelItemData[]
   }
 
 }

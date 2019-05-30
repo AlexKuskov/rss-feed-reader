@@ -1,4 +1,3 @@
 <div class="channels">
-  <span>channel1</span>
-  <span>channel2</span>
+  <span *ngFor="let channel of channelInfo">{{ channel.image }} {{ channel.title }}</span>
 </div>
