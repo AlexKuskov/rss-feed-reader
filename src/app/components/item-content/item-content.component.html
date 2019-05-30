@@ -1,1 +1,10 @@
-<div class="item-content"></div>
+<div class="item-content">
+    <div *ngFor="let item of channelItemData">
+        {{ item.title }} <br>
+        {{ item.content }} <br>
+        {{ item.categories }} <br>
+        {{ item.pubDate }} <br>
+        {{ item.link }} <br>
+        {{ item.author }}
+    </div>
+</div>

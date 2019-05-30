@@ -8,13 +8,12 @@ import { ChannelInfo } from '../../models/ChannelInfo';
   styleUrls: ['./channels.component.scss']
 })
 export class ChannelsComponent implements OnInit {
-  channelInfo:ChannelInfo[] = [];
-  arr:Array<Object> = [];
+  channelInfo: ChannelInfo[] = [];
 
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    this.getChannelInfoArray(this.channelInfo);
+    this.fillChannelInfoArray();
     // console.log(this.channelsService.getAllChannelData());
     // this.arr = this.channelsService.getAllChannelData();
     // console.log(this.arr);
@@ -52,17 +51,8 @@ export class ChannelsComponent implements OnInit {
     
   }
 
-  // fillArray() {
-  //   this.channelInfo = [
-  //     {
-  //       image: 'sadf',
-  //       title: 'title'
-  //     }
-  //   ];
-  // }
-
-  getChannelInfoArray(channelsInfoArr: ChannelInfo[]) {
-    channelsInfoArr = [];
+  fillChannelInfoArray() {
+    //channelsInfoArr = [];
     //this.getAllChannelData();
     // let allChannelData = this.channelsService.getAllChannelData();
     // console.log(allChannelData[2]['length']);
@@ -75,12 +65,10 @@ export class ChannelsComponent implements OnInit {
         });
         
         //this.arr.push(response);
-        console.log(channelsInfoArr);
+        //console.log(channelsInfoArr);
         //return response;
       });
     }
-
-    console.log(this.arr);
 
     // for (let channelData of allChannelData) {
     //   console.log(channelData);

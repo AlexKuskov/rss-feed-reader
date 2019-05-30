@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChannelsService } from 'src/app/services/channels.service';
 
 @Component({
   selector: 'app-statistics',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatisticsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
   }
+
+  
 
 }
