@@ -1,9 +1,9 @@
 <div class="statistics">
     <div class="back-button"></div>
     <div class="statistics-amounts">
-        <div>Channels: 22</div>
-        <div>Notifications: 40</div>
-        <div>Authours: 37</div> 
+        <div>Channels: {{ channelsNumber }}</div>
+        <div>Channel Posts: {{ channelPostsNumber }}</div>
+        <div>Channel Post Authours: {{ channelAuthoursNumber }}</div> 
     </div>
     
     <div class="pie-container">
@@ -12,9 +12,7 @@
             [data]="pieChartData"
             [labels]="pieChartLabels"
             [chartType]="pieChartType"
-            [options]="pieChartOptions"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
+            [options]="pieChartOptions"></canvas>
         </div>
     </div>
     

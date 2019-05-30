@@ -1,4 +1,4 @@
-export class ChannelItemData {
+export class ChannelPostData {
     title: string;
     content: string;
     categories: string[];

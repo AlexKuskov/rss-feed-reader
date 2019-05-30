@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ChannelsService } from '../../services/channels.service';
-import { ChannelItemData } from '../../models/ChannelItemData';
+import { ChannelPostData } from '../../models/ChannelPostData';
 
 @Component({
-  selector: 'app-item-content',
-  templateUrl: './item-content.component.html',
-  styleUrls: ['./item-content.component.scss']
+  selector: 'app-post-content',
+  templateUrl: './post-content.component.html',
+  styleUrls: ['./post-content.component.scss']
 })
-export class ItemContentComponent implements OnInit {
+export class PostContentComponent implements OnInit {
 
-  channelItemData: ChannelItemData[] = [];
+  channelPostData: ChannelPostData[] = [];
 
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    this.fillItemDataArray();
+    this.fillPostDataArray();
   }
 
-  fillItemDataArray() {
+  fillPostDataArray() {
     this.channelsService.getChannelDataById(0).subscribe(channelData => {
-      this.channelItemData.push({
+      this.channelPostData.push({
         title: channelData["items"][0]["title"],
         content: channelData["items"][0]["content"],
         categories: channelData["items"][0]["categories"],
@@ -28,7 +28,7 @@ export class ItemContentComponent implements OnInit {
         author: channelData["items"][0]["author"]
       });
 
-      console.log(this.channelItemData);
+      console.log(this.channelPostData);
 
       //console.log(this.channelItemData);
       

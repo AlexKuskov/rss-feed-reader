@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ChannelsComponent } from './components/channels/channels.component';
-import { ChannelItemsComponent } from './components/channel-items/channel-items.component';
-import { ItemContentComponent } from './components/item-content/item-content.component';
+import { ChannelPostsComponent } from './components/channel-posts/channel-posts.component';
+import { PostContentComponent } from './components/post-content/post-content.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ChannelsService } from './services/channels.service';
 
@@ -16,8 +16,8 @@ import { ChartsModule } from 'ng2-charts';
   declarations: [
     AppComponent,
     ChannelsComponent,
-    ChannelItemsComponent,
-    ItemContentComponent,
+    ChannelPostsComponent,
+    PostContentComponent,
     StatisticsComponent
   ],
   imports: [

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChannelsService } from 'src/app/services/channels.service';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-statistics',
@@ -7,11 +7,6 @@ import { ChannelsService } from 'src/app/services/channels.service';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
-
-  constructor(private channelsService: ChannelsService) { }
-
-  ngOnInit() {
-  }
 
   public pieChartLabels:string[] = ["Pending", "InProgress", "OnHold", "Complete", "Cancelled"];
   public pieChartData:number[] = [21, 39, 10, 14, 16];
@@ -27,16 +22,40 @@ export class StatisticsComponent implements OnInit {
                 display: false
               }
           }
- 
-  // events on slice click
-  public chartClicked(e:any):void {
-    console.log(e);
+
+  channelsNumber: number;
+  channelPostsNumber: number;
+  channelAuthoursNumber: number = 0;
+
+
+  constructor(private statisticsService: StatisticsService) { }
+
+  ngOnInit() {
+    this.channelsNumber = this.statisticsService.getChannelsNumber();
+    
+    this.statisticsService.getChannelPostsNumber().subscribe(channelData => {
+      this.channelPostsNumber = channelData["items"].length;
+    });
+    
+    this.statisticsService.getChannelAuthoursNumber().subscribe(channelData => {
+      let authors: string[] = [];
+
+      for (let item of channelData["items"]) {
+        console.log(item);
+        let author: string = item["author"];
+        if (author === "") continue; //check if it works
+
+        if (!~authors.indexOf(author)) {
+          authors.push(author);
+          this.channelAuthoursNumber++;
+        }
+      }
+    });
   }
+
+  
  
- // event on pie chart slice hover
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
+  
   
 
 }

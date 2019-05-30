@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ChannelsService } from './channels.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,49 +13,41 @@ export class StatisticsService {
     return this.channelsService.channelList.length;
   }
 
-  getChannelItemsNumber() {
-    this.channelsService.getChannelDataById(0).subscribe(channelData => {
-      return channelData["items"].length;
-    });
+  getChannelPostsNumber() {
+    return this.channelsService.getChannelDataById(0);
+
+    // let channelPostsNumber: number = 0;
+    // this.channelsService.getChannelDataById(0).pipe(
+    //   map(channelData => {
+      
+    //   channelPostsNumber = channelData["items"].length;
+    //   console.log(channelPostsNumber);
+    // }));
+
+    // return channelPostsNumber;
   }
 
   getChannelAuthoursNumber() {
-    this.channelsService.getChannelDataById(0).subscribe(channelData => {
-      let authors: string[] = [];
-      let authorCounter: number;
+    //let authorCounter: number = 0;
+    return this.channelsService.getChannelDataById(0);
+    // this.channelsService.getChannelDataById(0).subscribe(channelData => {
+    //   let authors: string[] = [];
 
-      for (let item of channelData["items"]) {
-        let author: string = item["author"];
-        if (author === "") continue; //check if it works
+    //   for (let item of channelData["items"]) {
+    //     let author: string = item["author"];
+    //     if (author === "") continue; //check if it works
 
-        if (!~authors.indexOf(author)) {
-          authors.push(author);
-          authorCounter++;
-        }
-      }
+    //     if (!~authors.indexOf(author)) {
+    //       authors.push(author);
+    //       authorCounter++;
+    //     }
+    //   }
+    // });
 
-      return authorCounter;
-
-      // this.channelItemData.push({
-      //   title: channelData["items"][0]["title"],
-      //   content: channelData["items"][0]["content"],
-      //   categories: channelData["items"][0]["categories"],
-      //   pubDate: channelData["items"][0]["pubDate"],
-      //   link: channelData["items"][0]["link"],
-      //   author: channelData["items"][0]["author"]
-      // });
-
-      // console.log(this.channelItemData);
-
-      //console.log(this.channelItemData);
-      
-      //this.arr.push(response);
-      //console.log(channelsInfoArr);
-      //return response;
-    });
+    // return authorCounter;
   }
 
-  getLettersPiechart() {
+  getPieChartData() {
     //add ChartJS library
     // this.channelsService.getChannelDataById(0).subscribe(channelData => {
     //   this.channelItemData.push({
