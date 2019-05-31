@@ -1,12 +1,22 @@
 <div class="statistics">
-    <div class="back-button"></div>
+    <div class="statistics-title">Website Statistics</div>
+    <!-- <div class="back-button"></div> -->
     <div class="statistics-amounts">
-        <div>Channels: {{ channelsNumber }}</div>
-        <div>Channel Posts: {{ channelPostsNumber }}</div>
-        <div>Channel Post Authours: {{ channelAuthoursNumber }}</div> 
+        <div>Channels: <br> {{ channelsNumber }}</div>
+        <div>
+            Channel Posts: <br> 
+            {{ channelPostsNumber }}
+            <!-- <span class="hint">Please click on a channel to see the number of its posts</span> -->
+        </div>
+        <div>
+            Channel Post Authours: <br> 
+            {{ channelAuthoursNumber }}
+            <!-- <span class="hint">Please click on a channel to see the number of post authors </span> -->
+        </div>
     </div>
     
     <div class="pie-container">
+        <span class="hint">Please click on a post to see the frequency of the letters in the post</span>
         <div class="pie-chart">
             <canvas baseChart
             [data]="pieChartData"
