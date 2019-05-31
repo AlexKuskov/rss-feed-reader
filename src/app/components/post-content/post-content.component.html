@@ -1,10 +1,13 @@
 <div class="post-content">
     <div *ngFor="let post of channelPostData">
-        {{ post.title }} <br>
-        {{ post.content }} <br>
-        {{ post.categories }} <br>
-        {{ post.pubDate }} <br>
-        {{ post.link }} <br>
+        <h1>{{ post.title }}</h1> <br>
+        <div [innerHTML]="post.content"></div> <br>
+        <div *ngFor="let category of post.categories">
+            <i>{{ category }}</i>
+        </div>
+        <!-- {{ post.categories }} <br> -->
+        <b>{{ post.pubDate }}</b> <br>
+        <a [href]="post.link" target="_blank">Visit Website</a> <br>
         {{ post.author }}
     </div>
 </div>
