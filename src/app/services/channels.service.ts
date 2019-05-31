@@ -10,23 +10,18 @@ import { ChannelInfo } from '../models/ChannelInfo';
 export class ChannelsService {
   channelList: string[] = [
     "https://www.rogerebert.com/feed",
-    "http://feeds.skynews.com/feeds/rss/uk.xml",
+    "https://www.instyle.com/feeds/all/ins.rss",
     "https://www.engadget.com/rss.xml",
     "https://www.wired.com/feed",
     "http://feeds.bbci.co.uk/news/rss.xml",
     "https://www.theguardian.com/uk/rss",
-    "http://www1.cbn.com/app_feeds/rss/news/rss.php?section=us",
+    "https://slate.com/feeds/all.rss",
     "http://www.cbn.com/cbnnews/us/feed/",
     "http://www.newyorker.com/services/rss/feeds/everything.xml",
     "https://www.dailysignal.com//feed/"
   ]
 
-  rssUrl: string = "http://feeds.skynews.com/feeds/rss/uk.xml"; //"https://www.engadget.com/rss.xml";
-  str: string = "https://rss2json.com/api.json?rss_url=https://www.engadget.com/rss.xml"; //last resort
-
-  xmlToJsonConverter:string = "https://rss2json.com/api.json?rss_url=";
-
-  //channelsArr: Array<Object> = this.getAllChannelData();
+  xmlToJsonConverter: string = "https://rss2json.com/api.json?rss_url=";
 
   constructor(private http: HttpClient) { }
 

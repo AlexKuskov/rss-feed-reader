@@ -1,3 +1,6 @@
 <div class="channels">
-  <span *ngFor="let channel of channelInfo">{{ channel.image }} {{ channel.title }}</span>
+  <div class="channel" *ngFor="let channel of channelInfo">
+    <img src="assets/images/rss-symbol.png" height="15"> {{ channel.title }}
+  </div> <br>
+  <!-- assets/images/rss-symbol.png -->
 </div>
