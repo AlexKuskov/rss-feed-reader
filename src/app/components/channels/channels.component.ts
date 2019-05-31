@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ChannelsService } from '../../services/channels.service';
-import { ChannelInfo } from '../../models/ChannelInfo';
+import { ChannelPostsComponent } from '../channel-posts/channel-posts.component';
 
 @Component({
   selector: 'app-channels',
@@ -8,50 +8,26 @@ import { ChannelInfo } from '../../models/ChannelInfo';
   styleUrls: ['./channels.component.scss']
 })
 export class ChannelsComponent implements OnInit {
-  channelInfo: ChannelInfo[] = [];
+  channelTitles: string[] = [];
+  //public channelPostsComponent: ChannelPostsComponent
+  @Input()
+  channelPostsComponent:ChannelPostsComponent;
 
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    this.fillChannelInfoArray();
-    // console.log(this.channelsService.getAllChannelData());
-    // this.arr = this.channelsService.getAllChannelData();
-    // console.log(this.arr);
-    //console.log(this.channelsService.getChannelInfoArray(this.channelInfo));
-    
-    
-    // this.channelInfo = [];
-    // this.channelInfo.push({
-    //   image: 'something',
-    //   title: 'some'
-    // })
-    //TODO: add channel info here through DataProvider service
-
-
-
-    // for (let i = 0; i < 10; i++) {
-    //   this.channelsService.testFunc()[i].subscribe(result => {
-    //     console.log(result);
-    //   });
-      
-    // }
-    //let inf:Object;
-
-    
-    
-    
-    // arr.forEach(item => {
-    //   console.log('it');
-    //   console.log(item);
-    // });
-    
-    //console.log(inf);
-
-    //console.log(this.getChannelInfoArray(this.channelInfo));
-    
+    this.fillChannelTitlesArray();
   }
 
-  fillChannelInfoArray() {
+  //@HostListener('click')
+  renderPostList(i) {
+    //this.channelPostsComponent.visibility = 'none';
+    this.channelPostsComponent.clearPostTitles();
+    this.channelPostsComponent.fillPostTitleArray(i);
+    //this.channelPostsComponent.visibility = 'block';
+  }
+
+  fillChannelTitlesArray() {
     //channelsInfoArr = [];
     //this.getAllChannelData();
     // let allChannelData = this.channelsService.getAllChannelData();
@@ -59,10 +35,9 @@ export class ChannelsComponent implements OnInit {
     for (let i = 0; i < this.channelsService.channelList.length; i++) {
       this.channelsService.getChannelDataById(i).subscribe(channelData => {
         //debugger;
-        this.channelInfo.push({
-          image: channelData['feed']['image'],
-          title: channelData['feed']['title']
-        });
+        this.channelTitles.push(
+          channelData['feed']['title']
+        );
         
         //this.arr.push(response);
         //console.log(channelsInfoArr);

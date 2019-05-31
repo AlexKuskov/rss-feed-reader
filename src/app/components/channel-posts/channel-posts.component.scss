@@ -1,9 +1,11 @@
 //$channel-post-height: 60px;
 
 .channel-posts {
+    position: relative;
+    //right: 18vw;
+    //z-index: -1;
     height: 100vh;
     width: 18vw;
-    //background-color: rgb(204, 204, 204);
     background-color: rgb(216, 216, 216);
     box-sizing: border-box;
     border: 2px solid rgb(45, 45, 45);
