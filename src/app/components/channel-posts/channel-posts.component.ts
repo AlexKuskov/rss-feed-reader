@@ -28,6 +28,7 @@ export class ChannelPostsComponent implements OnInit {
         //console.log(channelData['Posts'][0]['title']);
         
         this.channelPostTitle.push(channelData["items"][0]["title"]);
+        //this.channelPostTitle.push(channelData["items"][0]["title"]);
         
         //this.arr.push(response);
         //console.log(channelsInfoArr);

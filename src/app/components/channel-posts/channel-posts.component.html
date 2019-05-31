@@ -1,3 +1,6 @@
 <div class="channel-posts">
-    <span *ngFor="let channelPost of channelPostTitle">{{ channelPost }}</span>
+    <div class="channel-post" *ngFor="let channelPost of channelPostTitle; let even = even;"
+         [ngClass]="{ even: even }" [style.height]="10 < channelPostTitle.length ? '10vh' : '10%'">
+        <div>{{ channelPost }}</div>
+    </div>
 </div>

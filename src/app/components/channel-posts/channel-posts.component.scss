@@ -1,7 +1,29 @@
+//$channel-post-height: 60px;
+
 .channel-posts {
     height: 100vh;
-    width: 15vw;
-    background-color: yellow;
+    width: 18vw;
+    //background-color: rgb(204, 204, 204);
+    background-color: rgb(216, 216, 216);
+    box-sizing: border-box;
+    border: 2px solid rgb(45, 45, 45);
 
     overflow-y: auto;
+
+    .channel-post {
+        font-size: 0.8em;
+        box-sizing: border-box;
+        position: relative;
+        background-color: rgb(204, 204, 204);
+        width: 100%;
+        height: 10vh;
+        padding: 0 5px;
+        
+        display: flex;
+        align-items: center;
+    }
+
+    .even {
+        background-color: rgb(155, 155, 155);
+    }
 }
