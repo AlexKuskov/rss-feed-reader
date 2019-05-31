@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ChannelsService } from './channels.service';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatisticsService {
+
+  channelPostsNumber: number = 0;
 
   constructor(private channelsService: ChannelsService) { }
 
@@ -16,13 +17,12 @@ export class StatisticsService {
   getChannelPostsNumber() {
     return this.channelsService.getChannelDataById(0);
 
-    // let channelPostsNumber: number = 0;
-    // this.channelsService.getChannelDataById(0).pipe(
-    //   map(channelData => {
+    //let channelPostsNumber: number = 0;
+    // this.channelsService.getChannelDataById(0).subscribe(channelData => {
       
-    //   channelPostsNumber = channelData["items"].length;
-    //   console.log(channelPostsNumber);
-    // }));
+    //   this.channelPostsNumber = channelData["items"].length;
+    //   //console.log(channelPostsNumber);
+    // });
 
     // return channelPostsNumber;
   }
@@ -48,6 +48,7 @@ export class StatisticsService {
   }
 
   getPieChartData() {
+    //return this.channelsService.getChannelDataById(0);
     //add ChartJS library
     // this.channelsService.getChannelDataById(0).subscribe(channelData => {
     //   this.channelItemData.push({

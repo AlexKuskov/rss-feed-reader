@@ -28,7 +28,7 @@ export class PostContentComponent implements OnInit {
         author: channelData["items"][0]["author"]
       });
 
-      console.log(this.channelPostData);
+      //console.log(this.channelPostData);
 
       //console.log(this.channelItemData);
       
