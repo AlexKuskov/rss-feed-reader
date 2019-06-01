@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChannelsService } from 'src/app/services/channels.service';
-import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-channel-posts',
@@ -11,13 +10,14 @@ export class ChannelPostsComponent implements OnInit {
 
   //channelPostData: ChannelPostData[];
   channelPostTitle: string[] = [];
+  //activeChannelIdx: number;
 
-  @ViewChild('post') private postElement: ElementRef;
+  //@ViewChild('post') private postElement: ElementRef;
 
-  constructor(private channelsService: ChannelsService, @Inject(DOCUMENT) private document: any) { }
+  constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    this.fillPostTitleArray(5);
+    this.fillPostTitleArray(0);
     
     // this.channelPostTitle.pop();
     // this.channelPostTitle.pop();
@@ -35,14 +35,21 @@ export class ChannelPostsComponent implements OnInit {
     this.channelPostTitle = [];
   }
 
+  renderPostContent(postIdx: number) {
+    //this.postContent.fillPostData(this.activeChannelIdx, postIdx);
+  }
+
   fillPostTitleArray(indx: number) {
     //channelsInfoArr = [];
     //this.getAllChannelData();
     // let allChannelData = this.channelsService.getAllChannelData();
     // console.log(allChannelData[2]['length']);
+
+    //this.activeChannelIdx = indx;
+    //console.log(this.activeChannelIdx);
     
       this.channelsService.getChannelDataById(indx).subscribe(channelData => {
-        console.log(channelData['feed']['title']);
+        //console.log(channelData['feed']['title']);
         //console.log(channelData['Posts'][0]['title']);
         for (let i = 0; i < channelData["items"].length; i++) {
           this.channelPostTitle.push(channelData["items"][i]["title"]);

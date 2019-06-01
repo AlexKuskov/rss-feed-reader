@@ -44,8 +44,6 @@ export class ChannelsComponent implements OnInit {
       });
     }
 
-    this.channelTitles.sort();
-
     // for (let channelData of allChannelData) {
     //   console.log(channelData);
     //   channelsInfoArr.push({
