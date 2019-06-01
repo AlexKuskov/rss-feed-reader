@@ -19,12 +19,9 @@ export class ChannelsComponent implements OnInit {
     this.fillChannelTitlesArray();
   }
 
-  //@HostListener('click')
   renderPostList(i: number) {
-    //this.channelPostsComponent.visibility = 'none';
     this.channelPostsComponent.clearPostTitles();
     this.channelPostsComponent.fillPostTitleArray(i);
-    //this.channelPostsComponent.visibility = 'block';
   }
 
   fillChannelTitlesArray() {

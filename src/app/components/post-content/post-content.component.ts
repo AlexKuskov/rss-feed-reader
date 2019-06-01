@@ -42,6 +42,10 @@ export class PostContentComponent implements OnInit {
     });
   }
 
+  clearPostData() {
+    this.channelPostData = [];
+  }
+
     //TODO: Add click listener on specific element
     // for (let i = 0; i < this.channelsService.channelList.length; i++) {
     //   this.channelsService.getChannelDataById(i).subscribe(channelData => {
