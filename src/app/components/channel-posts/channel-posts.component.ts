@@ -31,6 +31,7 @@ export class ChannelPostsComponent implements OnInit {
     //console.log(elements);
     //element.style.display = element.style.display === 'none' ? 'block' : 'none';
     //this.postElement.nativeElement.remove();
+    
     this.channelPostTitle = [];
   }
 
@@ -41,6 +42,7 @@ export class ChannelPostsComponent implements OnInit {
     // console.log(allChannelData[2]['length']);
     
       this.channelsService.getChannelDataById(indx).subscribe(channelData => {
+        console.log(channelData['feed']['title']);
         //console.log(channelData['Posts'][0]['title']);
         for (let i = 0; i < channelData["items"].length; i++) {
           this.channelPostTitle.push(channelData["items"][i]["title"]);

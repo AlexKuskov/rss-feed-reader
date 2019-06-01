@@ -20,7 +20,7 @@ export class ChannelsComponent implements OnInit {
   }
 
   //@HostListener('click')
-  renderPostList(i) {
+  renderPostList(i: number) {
     //this.channelPostsComponent.visibility = 'none';
     this.channelPostsComponent.clearPostTitles();
     this.channelPostsComponent.fillPostTitleArray(i);
@@ -35,15 +35,16 @@ export class ChannelsComponent implements OnInit {
     for (let i = 0; i < this.channelsService.channelList.length; i++) {
       this.channelsService.getChannelDataById(i).subscribe(channelData => {
         //debugger;
-        this.channelTitles.push(
-          channelData['feed']['title']
-        );
+        this.channelTitles[i] = channelData['feed']['title'];
+        //this.channelTitles.push(channelData['feed']['title']);
         
         //this.arr.push(response);
         //console.log(channelsInfoArr);
         //return response;
       });
     }
+
+    this.channelTitles.sort();
 
     // for (let channelData of allChannelData) {
     //   console.log(channelData);
@@ -55,8 +56,5 @@ export class ChannelsComponent implements OnInit {
     // return channelsInfoArr;
   }
 
-
-
-  //channel image, channel title
 
 }
