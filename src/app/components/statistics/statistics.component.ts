@@ -9,8 +9,8 @@ import { ChannelsService } from 'src/app/services/channels.service';
 })
 export class StatisticsComponent implements OnInit {
 
-  public pieChartLabels:string[] = [];
-  public pieChartData:number[] = [];
+  public pieChartLabels:string[];
+  public pieChartData:number[];
   public pieChartType:string; 
   public pieChartOptions:any;
 
@@ -22,10 +22,8 @@ export class StatisticsComponent implements OnInit {
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    this.getPieChartData(0, 1);
+    //this.getPieChartData(0, 1);
     this.getChannelsNumber();
-    // this.getChannelPostsNumber(0);
-    // this.getChannelAuthoursNumber(0);
   }
 
   getChannelsNumber() {
@@ -59,7 +57,12 @@ export class StatisticsComponent implements OnInit {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let letters = {};
       
-      let content: string = channelData["items"][postIdx]["content"];
+      let content: string = channelData["items"][postIdx]["content"].concat(
+        channelData["items"][postIdx]["title"],
+        channelData["items"][postIdx]["categories"],
+        channelData["items"][postIdx]["author"]
+      );
+                            
       content = content.toLowerCase();
       let contentSymbols: string[] = content.split('').filter(i => {
         return ('a' <= i && i <= 'z');

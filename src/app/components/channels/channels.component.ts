@@ -17,8 +17,6 @@ export class ChannelsComponent implements OnInit {
   @Input()
   channelPostsComponent:ChannelPostsComponent;
 
- 
-
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
