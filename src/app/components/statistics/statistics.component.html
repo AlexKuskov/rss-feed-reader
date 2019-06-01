@@ -17,7 +17,7 @@
     
     <div class="pie-container">
         <span *ngIf="pieChartLabels == undefined" class="hint">Please click on a post to see the frequency of the letters in the post</span>
-        <div class="pie-chart">
+        <div *ngIf="pieChartLabels != undefined" class="pie-chart">
             <canvas baseChart
             [data]="pieChartData"
             [labels]="pieChartLabels"
