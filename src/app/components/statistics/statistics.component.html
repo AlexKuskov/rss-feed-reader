@@ -6,12 +6,12 @@
         <div>
             Channel Posts: <br> 
             {{ channelPostsNumber }}
-            <!-- <span class="hint">Please click on a channel to see the number of its posts</span> -->
+            <span *ngIf="channelPostsNumber == undefined" class="hint">Please click on a channel to see the number of its posts</span>
         </div>
         <div>
             Channel Post Authours: <br> 
             {{ channelAuthoursNumber }}
-            <!-- <span class="hint">Please click on a channel to see the number of post authors </span> -->
+            <span *ngIf="channelAuthoursNumber == undefined" class="hint">Please click on a channel to see the number of post authors </span>
         </div>
     </div>
     

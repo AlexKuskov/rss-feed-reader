@@ -16,30 +16,30 @@ export class StatisticsComponent implements OnInit {
 
   channelsNumber: number;
   channelPostsNumber: number;
-  channelAuthoursNumber: number = 0;
+  channelAuthoursNumber: number;
 
   
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    this.getPieChartData();
+    this.getPieChartData(0, 1);
     this.getChannelsNumber();
-    this.getChannelPostsNumber();
-    this.getChannelAuthoursNumber();
+    // this.getChannelPostsNumber(0);
+    // this.getChannelAuthoursNumber(0);
   }
 
   getChannelsNumber() {
     this.channelsNumber = this.channelsService.channelList.length;
   }
 
-  getChannelPostsNumber() {
-    this.channelsService.getChannelDataById(0).subscribe(channelData => {
+  getChannelPostsNumber(channelIdx: number) {
+    this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       this.channelPostsNumber = channelData["items"].length;
     });
   }
 
-  getChannelAuthoursNumber() {
-    this.channelsService.getChannelDataById(0).subscribe(channelData => {
+  getChannelAuthoursNumber(channelIdx: number) {
+    this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let authors: string[] = [];
 
       for (let item of channelData["items"]) {
@@ -48,17 +48,18 @@ export class StatisticsComponent implements OnInit {
 
         if (!~authors.indexOf(author)) {
           authors.push(author);
-          this.channelAuthoursNumber++;
         }
       }
+
+      this.channelAuthoursNumber = authors.length;
     });
   }
 
-  getPieChartData() {
-    this.channelsService.getChannelDataById(0).subscribe(channelData => {
+  getPieChartData(channelIdx: number, postIdx: number) {
+    this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let letters = {};
       
-      let content: string = channelData["items"][0]["content"];
+      let content: string = channelData["items"][postIdx]["content"];
       content = content.toLowerCase();
       let contentSymbols: string[] = content.split('').filter(i => {
         return ('a' <= i && i <= 'z');

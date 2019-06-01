@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ChannelsService } from '../../services/channels.service';
 import { ChannelPostsComponent } from '../channel-posts/channel-posts.component';
+import { StatisticsComponent } from '../statistics/statistics.component';
 
 @Component({
   selector: 'app-channels',
@@ -11,7 +12,12 @@ export class ChannelsComponent implements OnInit {
   channelTitles: string[] = [];
   //public channelPostsComponent: ChannelPostsComponent
   @Input()
+  statisticsComponent:StatisticsComponent;
+
+  @Input()
   channelPostsComponent:ChannelPostsComponent;
+
+ 
 
   constructor(private channelsService: ChannelsService) { }
 
@@ -22,6 +28,12 @@ export class ChannelsComponent implements OnInit {
   renderPostList(i: number) {
     this.channelPostsComponent.clearPostTitles();
     this.channelPostsComponent.fillPostTitleArray(i);
+    this.renderStatisticsData(i);
+  }
+
+  renderStatisticsData(channelIdx: number) {
+    this.statisticsComponent.getChannelPostsNumber(channelIdx);
+    this.statisticsComponent.getChannelAuthoursNumber(channelIdx);
   }
 
   fillChannelTitlesArray() {

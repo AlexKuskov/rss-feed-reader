@@ -1,5 +1,6 @@
-<app-channels [channelPostsComponent]="chanPosts"></app-channels>
-<app-channel-posts #chanPosts [postContentComponent]="postContent"></app-channel-posts>
+<app-channels [channelPostsComponent]="chanPosts" [statisticsComponent]="statComponent"></app-channels>
+<app-channel-posts #chanPosts [postContentComponent]="postContent"
+                    ></app-channel-posts>
 <app-post-content #postContent></app-post-content>
 
-<app-statistics></app-statistics>
+<app-statistics #statComponent></app-statistics>
