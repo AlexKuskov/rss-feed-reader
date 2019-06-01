@@ -10,27 +10,27 @@ import { ChannelPostData } from '../../models/ChannelPostData';
 })
 export class PostContentComponent implements OnInit {
 
-  channelPostData: ChannelPostData[] = [];
+  channelPostData: ChannelPostData[];
 
   constructor(private channelsService: ChannelsService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     //this.fillPostDataArray();
-    this.fillPostData(0, 1);
+    //this.fillPostData(0, 1);
   }
 
   fillPostData(channelIdx: number, postIdx: number) {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let secureContent = this.domSanitizer.bypassSecurityTrustHtml(channelData["items"][postIdx]["content"]);
      
-      this.channelPostData.push({
+      this.channelPostData = [{
         title: channelData["items"][postIdx]["title"],
         content: secureContent,
         categories: channelData["items"][postIdx]["categories"],
         pubDate: channelData["items"][postIdx]["pubDate"],
         link: channelData["items"][postIdx]["link"],
         author: channelData["items"][postIdx]["author"]
-      });
+      }];
 
       //console.log(this.channelPostData);
 
