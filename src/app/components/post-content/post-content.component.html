@@ -1,9 +1,9 @@
-<div class="post-content" [ngClass]="{ 'shrinked-post-content': postContentState }">
+<div class="post-content">
     <ng-template [ngIf]="channelPostData == undefined">
-        <div class="choose-post-text">Please choose a channel post to see its content here</div>
+        <div [ngClass]="{ 'shrinked-post-content': postContentState }" class="choose-post-text">Please choose a channel post to see its content here</div>
     </ng-template>
 
-    <div *ngFor="let post of channelPostData">
+    <div [ngClass]="{ 'shrinked-post-content': postContentState }" *ngFor="let post of channelPostData">
         <div class="post-title" (click)="postContentToggle()">{{ post.title }}</div> <br>
         <div class="author-pubdate-section">
             <div *ngIf="post.author != ''" class="author">By {{ post.author }}</div> 

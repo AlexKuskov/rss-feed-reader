@@ -14,6 +14,11 @@ $tags-vertical-padding: 2px;
     overflow-y: auto;
     overflow-x: hidden;
 
+    & > div {
+        position: absolute;
+        right: 0;
+    }
+
     .choose-post-text {
         display: flex;
         justify-content:center;
