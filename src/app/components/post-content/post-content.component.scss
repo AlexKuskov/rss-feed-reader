@@ -1,7 +1,11 @@
-$post-content-width: 50vw;
+$post-content-width: 68vw; //50vw; //68
 $tags-vertical-padding: 2px;
 
 .post-content {
+     position: relative;
+    // float: right;
+    // right: 0;
+    //z-index: -2;
     font-size: 0.8rem;
     height: 100vh;
     width: $post-content-width;
@@ -19,20 +23,20 @@ $tags-vertical-padding: 2px;
         font-size: 1.4rem;
         text-align: center;
         color: rgb(114, 114, 114);
-        width: $post-content-width;
+        width: 100%; //$post-content-width;
         height: 100%;
         user-select: none;
     }
 
     .post-title {
         font-size: 1.5rem;
-        width: $post-content-width;
+        width: 100%; //$post-content-width;
         text-align: center;
         margin-bottom: 5vh;
     }
 
     .author-pubdate-section {
-        width: $post-content-width;
+        width: 100%; //$post-content-width;
         font-weight: bold;
         //position: relative;
         margin-bottom: 30px;
@@ -73,7 +77,7 @@ $tags-vertical-padding: 2px;
     }
 
     .button-container {
-        width: $post-content-width;
+        width: 100%; //$post-content-width;
         text-align: center;
         margin-bottom: 30px;
         margin-top: 15px;
@@ -114,4 +118,8 @@ $tags-vertical-padding: 2px;
         }
     }
     
+}
+
+.shrinked-post-content {
+    width: 50vw;
 }

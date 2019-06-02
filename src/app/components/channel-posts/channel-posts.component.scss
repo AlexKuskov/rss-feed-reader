@@ -5,10 +5,10 @@
     right: 18vw;
     z-index: -1;
     height: 100vh;
-    width: 18vw;
+    width: 0; //18vw;
     background-color: rgb(216, 216, 216);
     box-sizing: border-box;
-    border: 2px solid rgb(45, 45, 45);
+    //border: 2px solid rgb(45, 45, 45); //uncomment it later
     user-select: none;
     -webkit-transition: right 0.3s;
     transition: right 0.3s;

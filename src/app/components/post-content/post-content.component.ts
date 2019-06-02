@@ -12,12 +12,13 @@ import { ChannelPostData } from '../../models/ChannelPostData';
 export class PostContentComponent implements OnInit {
 
   channelPostData: ChannelPostData[];
+  postContentState: boolean = true;
 
   constructor(private channelsService: ChannelsService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     //this.fillPostDataArray();
-    //this.fillPostData(0, 1);
+    this.fillPostData(5, 1);
   }
 
   fillPostData(channelIdx: number, postIdx: number) {
@@ -47,6 +48,9 @@ export class PostContentComponent implements OnInit {
     this.channelPostData = [];
   }
 
+  postContentToggle() {
+    this.postContentState = !this.postContentState;
+  }
     //TODO: Add click listener on specific element
     // for (let i = 0; i < this.channelsService.channelList.length; i++) {
     //   this.channelsService.getChannelDataById(i).subscribe(channelData => {
