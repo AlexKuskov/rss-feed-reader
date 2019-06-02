@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ChannelsService } from '../../services/channels.service';
 import { ChannelPostData } from '../../models/ChannelPostData';
 
 @Component({
   selector: 'app-post-content',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './post-content.component.html',
   styleUrls: ['./post-content.component.scss']
 })
@@ -16,7 +17,7 @@ export class PostContentComponent implements OnInit {
 
   ngOnInit() {
     //this.fillPostDataArray();
-    //this.fillPostData(0, 1);
+    this.fillPostData(2, 1);
   }
 
   fillPostData(channelIdx: number, postIdx: number) {

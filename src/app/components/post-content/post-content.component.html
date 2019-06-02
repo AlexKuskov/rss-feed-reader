@@ -4,13 +4,18 @@
     </ng-template>
 
     <div *ngFor="let post of channelPostData">
-        <h1>{{ post.title }}</h1> <br>
-        <div [innerHTML]="post.content"></div> <br>
-        <div *ngFor="let category of post.categories">
-            <i>{{ category }}</i>
+        <div class="post-title">{{ post.title }}</div> <br>
+        <div class="author-pubdate-section">
+            <div *ngIf="post.author != ''" class="author">By {{ post.author }}</div> 
+            <div class="pub-date">{{ post.pubDate }}</div>
         </div>
-        <b>{{ post.pubDate }}</b> <br>
-        <a [href]="post.link" target="_blank">Visit Website</a> <br>
-        {{ post.author }}
+        <div class="content" [innerHTML]="post.content"></div> <br>
+        <div class="button-container">
+            <a class="visit-website-btn" [href]="post.link" target="_blank">Visit Website</a> <br>
+        </div> 
+        <div class="tags-text" *ngIf="post.categories.length > 0">Tags:</div>
+        <div *ngFor="let category of post.categories">
+            <i class="category">{{ category }}</i>
+        </div>  
     </div>
 </div>

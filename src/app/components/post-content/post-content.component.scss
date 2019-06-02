@@ -1,25 +1,109 @@
+$post-content-width: 50vw;
+$tags-vertical-padding: 2px;
+
 .post-content {
-    font-size: 8px;
+    font-size: 0.8rem;
     height: 100vh;
-    width: 50vw;
+    width: $post-content-width;
     background-color: white;
+    box-sizing: border-box;
+
+    // & > div > * {
+    //     padding: 0 10px;
+    //     box-sizing: border-box;
+    // }
+    //padding: 0 10px;
 
     overflow: auto;
-}
 
-.choose-post-text {
-    display: flex;
-    justify-content:center;
-    align-content:center;
-    flex-direction: column;
-
-    font-size: 1.4rem;
-    text-align: center;
-    //line-height: 200px;
-    color: rgb(114, 114, 114);
-    width: 100%;
-    height: 100%;
+    .choose-post-text {
+        display: flex;
+        justify-content:center;
+        align-content:center;
+        flex-direction: column;
     
-    //vertical-align: middle;
-    user-select: none;
+        font-size: 1.4rem;
+        text-align: center;
+        color: rgb(114, 114, 114);
+        width: $post-content-width;
+        height: 100%;
+        user-select: none;
+    }
+
+    .button-container {
+        width: $post-content-width;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .visit-website-btn {
+        display: inline-block;
+        border: 1px solid black;
+        border-radius: 50px;
+        width: 200px;
+        height: 40px;
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+        text-align: center;
+        line-height: 40px;
+        background-color: rgb(221, 221, 221);
+    }
+    
+    .post-title {
+        font-size: 1.5rem;
+        width: $post-content-width;
+        text-align: center;
+        margin-bottom: 5vh;
+    }
+
+    .tags-text {
+        font-weight: bold;
+        font-size: 0.8rem;
+        padding: $tags-vertical-padding 0;
+    }
+    
+    .category {
+        font-size: 0.7rem;
+        border: 1px solid black;
+        border-radius: 50px;
+        margin: 0 5px;
+        padding: $tags-vertical-padding 8px;
+        line-height: 2.2em;
+    }
+
+    .author-pubdate-section {
+        width: $post-content-width;
+        font-weight: bold;
+        position: relative;
+        margin-bottom: 30px;
+        //padding: 0 10px;
+    
+        .author {
+            width: 50%;
+        }
+    
+        .pub-date {
+            position: absolute;
+            right: 10px;
+            text-align: right;
+            //width: 50%;
+        }
+    }
+
+    .content {
+        //padding: 0 10px;
+        img {
+            display: block;
+            max-width: 90%;
+            margin-bottom: 2vh;
+            margin: 0 auto;
+        }
+    
+        p {
+            //text-align: center;
+            
+            margin-bottom: 3vh;
+        }
+    }
 }
