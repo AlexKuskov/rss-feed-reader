@@ -24,6 +24,7 @@ export class ChannelsComponent implements OnInit {
   }
 
   renderPostList(i: number) {
+    this.channelPostsComponent.panelToggle();
     this.channelPostsComponent.clearPostTitles();
     this.channelPostsComponent.fillPostTitleArray(i);
     this.renderStatisticsData(i);

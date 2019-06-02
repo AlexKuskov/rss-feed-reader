@@ -13,6 +13,7 @@ export class ChannelPostsComponent implements OnInit {
   //channelPostData: ChannelPostData[];
   channelPostTitle: string[] = [];
   activeChannelIdx: number;
+  panelState: boolean = false;
 
   @Input()
   postContentComponent:PostContentComponent;
@@ -28,6 +29,10 @@ export class ChannelPostsComponent implements OnInit {
 
   clearPostTitles() {
     this.channelPostTitle = [];
+  }
+
+  panelToggle() {
+    this.panelState = !this.panelState;
   }
 
   renderPostContent(postIdx: number) {

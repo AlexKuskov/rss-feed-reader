@@ -1,4 +1,4 @@
-<div class="channel-posts">
+<div class="channel-posts" [ngClass]="{ 'opened-panel': panelState }">
     <div class="channel-post" *ngFor="let channelPost of channelPostTitle; let even = even; let idx = index;"
          [ngClass]="{ even: even }" [style.height]="10 < channelPostTitle.length ? '10vh' : '10%'"
          (click)="renderPostContent(idx)">

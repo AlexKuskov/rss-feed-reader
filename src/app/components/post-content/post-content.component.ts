@@ -17,7 +17,7 @@ export class PostContentComponent implements OnInit {
 
   ngOnInit() {
     //this.fillPostDataArray();
-    this.fillPostData(0, 1);
+    //this.fillPostData(0, 1);
   }
 
   fillPostData(channelIdx: number, postIdx: number) {
