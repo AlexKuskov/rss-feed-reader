@@ -13,9 +13,11 @@
         <div class="button-container">
             <a class="visit-website-btn" [href]="post.link" target="_blank">Visit Website</a> <br>
         </div> 
-        <div class="tags-text" *ngIf="post.categories.length > 0">Tags:</div>
-        <div *ngFor="let category of post.categories">
-            <i class="category">{{ category }}</i>
-        </div>  
+        <div class="categories-section">
+            <div class="tags-text" *ngIf="post.categories.length > 0">Tags:</div>
+            <div *ngFor="let category of post.categories">
+                <i class="category">{{ category }}</i>
+            </div> 
+        </div> 
     </div>
 </div>
