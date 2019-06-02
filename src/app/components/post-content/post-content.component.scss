@@ -1,4 +1,4 @@
-$post-content-width: 68vw; //50vw; //68
+//$post-content-width: 68vw; //50vw; //68
 $tags-vertical-padding: 2px;
 
 .post-content {
@@ -8,16 +8,26 @@ $tags-vertical-padding: 2px;
     //z-index: -2;
     font-size: 0.8rem;
     height: 100vh;
-    width: $post-content-width;
+    width: 68vw;
     background-color: white;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
+    -webkit-transition: width 1s;
+    transition: width 1s;
 
     & > div {
         position: absolute;
         right: 0;
+        width: 68vw;
+        -webkit-transition: width 0.3s;
+        transition: width 0.3s;
     }
+
+    .shrinked-post-content {
+        width: 50vw;
+    }
+    
 
     .choose-post-text {
         display: flex;
@@ -123,8 +133,4 @@ $tags-vertical-padding: 2px;
         }
     }
     
-}
-
-.shrinked-post-content {
-    width: 50vw;
 }
