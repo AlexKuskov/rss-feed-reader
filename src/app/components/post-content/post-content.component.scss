@@ -2,10 +2,12 @@
 $tags-vertical-padding: 2px;
 
 .post-content {
-     position: relative;
+    position: absolute;
+    top: 0;
+    right: 17vw;
     // float: right;
     // right: 0;
-    //z-index: -2;
+    z-index: -2;
     font-size: 0.8rem;
     height: 100vh;
     width: 68vw;
@@ -13,8 +15,6 @@ $tags-vertical-padding: 2px;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
-    -webkit-transition: width 1s;
-    transition: width 1s;
 
     & > div {
         position: absolute;
@@ -23,12 +23,7 @@ $tags-vertical-padding: 2px;
         -webkit-transition: width 0.3s;
         transition: width 0.3s;
     }
-
-    .shrinked-post-content {
-        width: 50vw;
-    }
     
-
     .choose-post-text {
         display: flex;
         justify-content:center;
@@ -41,6 +36,13 @@ $tags-vertical-padding: 2px;
         width: 100%; //$post-content-width;
         height: 100%;
         user-select: none;
+
+        -webkit-transition: width 0.3s;
+        transition: width 0.3s;
+    }
+
+    .shrinked-post-content {
+        width: 50vw;
     }
 
     .post-title {

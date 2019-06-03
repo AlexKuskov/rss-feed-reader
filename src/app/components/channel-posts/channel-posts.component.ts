@@ -33,6 +33,9 @@ export class ChannelPostsComponent implements OnInit {
 
   panelToggle() {
     this.panelState = !this.panelState;
+    console.log(this.postContentComponent.postContentState);
+    this.postContentComponent.postContentState = !this.postContentComponent.postContentState;
+    console.log(this.postContentComponent.postContentState);
   }
 
   renderPostContent(postIdx: number) {

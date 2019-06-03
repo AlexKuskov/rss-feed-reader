@@ -10,6 +10,7 @@ import { StatisticsComponent } from '../statistics/statistics.component';
 })
 export class ChannelsComponent implements OnInit {
   channelTitles: string[] = [];
+  prevIdx: number;
   //public channelPostsComponent: ChannelPostsComponent
   @Input()
   statisticsComponent:StatisticsComponent;
@@ -24,10 +25,22 @@ export class ChannelsComponent implements OnInit {
   }
 
   renderPostList(i: number) {
-    this.channelPostsComponent.panelToggle();
-    this.channelPostsComponent.clearPostTitles();
-    this.channelPostsComponent.fillPostTitleArray(i);
-    this.renderStatisticsData(i);
+    // if (this.prevIdx == undefined) {
+    //   this.channelPostsComponent.panelToggle();
+    // }
+   // console.log(i !== this.prevIdx);
+    if (i !== this.prevIdx) {
+      if (!this.channelPostsComponent.panelState) {
+        this.channelPostsComponent.panelToggle();
+      }
+
+      this.channelPostsComponent.clearPostTitles();
+      this.channelPostsComponent.fillPostTitleArray(i);
+      this.renderStatisticsData(i);
+      this.prevIdx = i;
+    } else {
+      this.channelPostsComponent.panelToggle();
+    }
   }
 
   renderStatisticsData(channelIdx: number) {

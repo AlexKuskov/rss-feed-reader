@@ -12,13 +12,13 @@ import { ChannelPostData } from '../../models/ChannelPostData';
 export class PostContentComponent implements OnInit {
 
   channelPostData: ChannelPostData[];
-  postContentState: boolean = true;
+  postContentState: boolean = false;
 
   constructor(private channelsService: ChannelsService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     //this.fillPostDataArray();
-    this.fillPostData(5, 1);
+    //this.fillPostData(5, 1);
   }
 
   fillPostData(channelIdx: number, postIdx: number) {
