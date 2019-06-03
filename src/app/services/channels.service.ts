@@ -27,27 +27,14 @@ export class ChannelsService {
   channels: Array<any> = [];
 
   getAllChannelData() {
-    //let tempArrItem:Object = {};
-
     for (let channelListItem of this.channelList) {
       this.http.get(this.xmlToJsonConverter + channelListItem)
       .pipe(
         catchError(this.errorHandler)
       ).subscribe(response => {
-        //console.log(response);
         this.channels.push(response)
-        //tempArrItem = response;
       });
-      //console.log(tempArrItem);
-      //this.channels.push(tempArrItem);
     }
-
-    // for (let channelListItem of this.channelList) {
-    //   this.channels.push({
-    //     one: 'one',
-    //     two: 'two'
-    //   });
-    // }
 
     return this.channels;
   }

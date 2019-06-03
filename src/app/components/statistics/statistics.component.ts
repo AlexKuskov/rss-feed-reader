@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { ChannelsService } from 'src/app/services/channels.service';
 
 @Component({
@@ -22,7 +21,6 @@ export class StatisticsComponent implements OnInit {
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    //this.getPieChartData(0, 1);
     this.getChannelsNumber();
   }
 

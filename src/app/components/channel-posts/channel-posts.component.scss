@@ -1,14 +1,12 @@
-//$channel-post-height: 60px;
-
 .channel-posts {
     position: relative;
     right: 18vw;
     z-index: -1;
     height: 100vh;
-    width: 18vw; //18vw;
+    width: 18vw;
     background-color: rgb(216, 216, 216);
     box-sizing: border-box;
-    border: 2px solid rgb(45, 45, 45); //uncomment it later
+    border: 2px solid rgb(45, 45, 45);
     user-select: none;
     -webkit-transition: right 0.3s;
     transition: right 0.3s;

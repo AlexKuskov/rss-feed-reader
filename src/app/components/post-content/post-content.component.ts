@@ -17,8 +17,6 @@ export class PostContentComponent implements OnInit {
   constructor(private channelsService: ChannelsService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    //this.fillPostDataArray();
-    //this.fillPostData(5, 1);
   }
 
   fillPostData(channelIdx: number, postIdx: number) {
@@ -33,54 +31,10 @@ export class PostContentComponent implements OnInit {
         link: channelData["items"][postIdx]["link"],
         author: channelData["items"][postIdx]["author"]
       }];
-
-      //console.log(this.channelPostData);
-
-      //console.log(this.channelItemData);
-      
-      //this.arr.push(response);
-      //console.log(channelsInfoArr);
-      //return response;
     });
   }
 
   clearPostData() {
     this.channelPostData = [];
   }
-
-  postContentToggle() {
-    this.postContentState = !this.postContentState;
-  }
-    //TODO: Add click listener on specific element
-    // for (let i = 0; i < this.channelsService.channelList.length; i++) {
-    //   this.channelsService.getChannelDataById(i).subscribe(channelData => {
-    //     //console.log(channelData['items'][0]['title']);
-        
-    //     this.channelItemData.push({
-    //       title: channelData["items"][0]["title"],
-    //       content: channelData["items"][0]["content"],
-    //       categories: channelData["items"][0]["categories"],
-    //       pubDate: channelData["items"][0]["pubDate"],
-    //       link: channelData["items"][0]["link"],
-    //       author: channelData["items"][0]["author"]
-    //     });
-
-    //     this.channelItemData = {
-    //       title: channelData["items"][0]["title"],
-    //       content: channelData["items"][0]["content"],
-    //       categories: channelData["items"][0]["categories"],
-    //       pubDate: channelData["items"][0]["pubDate"],
-    //       link: channelData["items"][0]["link"],
-    //       author: channelData["items"][0]["author"]
-    //     };
-
-    //     //console.log(this.channelItemData);
-        
-    //     //this.arr.push(response);
-    //     //console.log(channelsInfoArr);
-    //     //return response;
-    //   });
-    // }
- // }
-
 }

@@ -10,7 +10,6 @@ import { StatisticsComponent } from '../statistics/statistics.component';
 })
 export class ChannelPostsComponent implements OnInit {
 
-  //channelPostData: ChannelPostData[];
   channelPostTitle: string[] = [];
   activeChannelIdx: number;
   panelState: boolean = false;

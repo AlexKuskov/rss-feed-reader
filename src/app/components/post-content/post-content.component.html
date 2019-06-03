@@ -4,7 +4,7 @@
     </ng-template>
 
     <div [ngClass]="{ 'shrinked-post-content': postContentState }" *ngFor="let post of channelPostData">
-        <div class="post-title" (click)="postContentToggle()">{{ post.title }}</div> <br>
+        <div class="post-title">{{ post.title }}</div> <br>
         <div class="author-pubdate-section">
             <div *ngIf="post.author != ''" class="author">By {{ post.author }}</div> 
             <div class="pub-date">{{ post.pubDate }}</div>
