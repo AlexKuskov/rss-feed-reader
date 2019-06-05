@@ -30,7 +30,7 @@ export class StatisticsComponent implements OnInit {
 
   getChannelPostsNumber(channelIdx: number) {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      this.channelPostsNumber = channelData["items"].length;
+      this.channelPostsNumber = channelData.items.length;
     });
   }
 
@@ -38,8 +38,8 @@ export class StatisticsComponent implements OnInit {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let authors: string[] = [];
 
-      for (let item of channelData["items"]) {
-        let author: string = item["author"];
+      for (let item of channelData.items) {
+        let author: string = item.author;
         if (author === "") continue;
 
         if (!~authors.indexOf(author)) {
@@ -55,10 +55,10 @@ export class StatisticsComponent implements OnInit {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let letters = {};
       
-      let content: string = channelData["items"][postIdx]["content"].concat(
-        channelData["items"][postIdx]["title"],
-        channelData["items"][postIdx]["categories"],
-        channelData["items"][postIdx]["author"]
+      let content: string = channelData.items[postIdx].content.concat(
+        channelData.items[postIdx].title,
+        channelData.items[postIdx].categories.toString(),
+        channelData.items[postIdx].author
       );
                             
       content = content.toLowerCase();

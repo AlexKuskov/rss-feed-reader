@@ -47,7 +47,7 @@ export class ChannelsComponent implements OnInit {
   fillChannelTitlesArray() {
     for (let i = 0; i < this.channelsService.channelList.length; i++) {
       this.channelsService.getChannelDataById(i).subscribe(channelData => {
-        this.channelTitles[i] = channelData['feed']['title'];
+        this.channelTitles[i] = channelData.feed.title;
        });
     }
   }

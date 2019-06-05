@@ -21,15 +21,15 @@ export class PostContentComponent implements OnInit {
 
   fillPostData(channelIdx: number, postIdx: number) {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      let secureContent = this.domSanitizer.bypassSecurityTrustHtml(channelData["items"][postIdx]["content"]);
+      let secureContent = this.domSanitizer.bypassSecurityTrustHtml(channelData.items[postIdx].content);
      
       this.channelPostData = [{
-        title: channelData["items"][postIdx]["title"],
+        title: channelData.items[postIdx].title,
         content: secureContent,
-        categories: channelData["items"][postIdx]["categories"],
-        pubDate: channelData["items"][postIdx]["pubDate"],
-        link: channelData["items"][postIdx]["link"],
-        author: channelData["items"][postIdx]["author"]
+        categories: channelData.items[postIdx].categories,
+        pubDate: channelData.items[postIdx].pubDate,
+        link: channelData.items[postIdx].link,
+        author: channelData.items[postIdx].author
       }];
     });
   }

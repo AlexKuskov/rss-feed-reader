@@ -32,9 +32,7 @@ export class ChannelPostsComponent implements OnInit {
 
   panelToggle() {
     this.panelState = !this.panelState;
-    console.log(this.postContentComponent.postContentState);
     this.postContentComponent.postContentState = !this.postContentComponent.postContentState;
-    console.log(this.postContentComponent.postContentState);
   }
 
   renderPostContent(postIdx: number) {
@@ -51,12 +49,12 @@ export class ChannelPostsComponent implements OnInit {
     this.activeChannelIdx = indx;
 
     this.channelsService.getChannelDataById(indx).subscribe(channelData => {
-      for (let i = 0; i < channelData["items"].length; i++) {
-        this.channelPostTitle.push(channelData["items"][i]["title"]);
+      for (let i = 0; i < channelData.items.length; i++) {
+        this.channelPostTitle.push(channelData.items[i].title);
         //added next code to emulate more than 10 items, because https://rss2json.com/ service doesn't allow
         //to load more than 10 items at once
         if (indx === 2) {
-          this.channelPostTitle.push(channelData["items"][i]["title"]);
+          this.channelPostTitle.push(channelData.items[i].title);
         }
       }
     });
