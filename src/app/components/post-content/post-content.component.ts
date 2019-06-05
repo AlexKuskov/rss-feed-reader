@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ChannelsService } from '../../services/channels.service';
 import { ChannelPostData } from '../../models/ChannelPostData';
+import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-post-content',
@@ -14,9 +16,19 @@ export class PostContentComponent implements OnInit {
   channelPostData: ChannelPostData[];
   postContentState: boolean = false;
 
-  constructor(private channelsService: ChannelsService, private domSanitizer: DomSanitizer) { }
+  constructor(private channelsService: ChannelsService, 
+    private domSanitizer: DomSanitizer,
+    private channelPostContentService: ChannelPostContentService,
+    private statisticsService: StatisticsService) { }
 
   ngOnInit() {
+    this.channelPostContentService.getPostContentState().subscribe(postContentState => {
+      this.postContentState = postContentState;
+    });
+    this.statisticsService.getChannelPostIndeces().subscribe(indeces => {
+      this.clearPostData();
+      this.fillPostData(indeces[0], indeces[1]);
+    });
   }
 
   fillPostData(channelIdx: number, postIdx: number) {

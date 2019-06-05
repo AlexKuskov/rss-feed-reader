@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChannelsService } from 'src/app/services/channels.service';
-import { PostContentComponent } from '../post-content/post-content.component';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
 
 @Component({
   selector: 'app-channel-posts',
@@ -14,11 +14,9 @@ export class ChannelPostsComponent implements OnInit {
   activeChannelIdx: number;
   panelState: boolean = false;
 
-  @Input()
-  postContentComponent:PostContentComponent;
-
   constructor(private channelsService: ChannelsService,
-    private statisticsService: StatisticsService) { }
+    private statisticsService: StatisticsService,
+    private channelPostContentService: ChannelPostContentService) { }
 
   ngOnInit() {
   }
@@ -29,12 +27,11 @@ export class ChannelPostsComponent implements OnInit {
 
   panelToggle() {
     this.panelState = !this.panelState;
-    this.postContentComponent.postContentState = !this.postContentComponent.postContentState;
+    this.channelPostContentService.setPostContentState(this.panelState);
   }
 
   renderPostContent(postIdx: number) {
-    this.postContentComponent.clearPostData();
-    this.postContentComponent.fillPostData(this.activeChannelIdx, postIdx);
+    this.statisticsService.setChannelPostIndeces(this.activeChannelIdx, postIdx);
     this.renderStatisticsPiechart(postIdx);
   }
 
