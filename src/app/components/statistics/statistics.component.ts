@@ -27,9 +27,13 @@ export class StatisticsComponent implements OnInit {
 
   ngOnInit() {
     this.getChannelsNumber();
-    this.statisticsService.getChannelIndex().subscribe(index => {
-      this.getChannelPostsNumber(index);
-      this.getChannelAuthoursNumber(index);
+
+    this.statisticsService.getChannelIndex().subscribe(channelIdx => {
+      this.getChannelPostsNumber(channelIdx);
+      this.getChannelAuthoursNumber(channelIdx);
+    });
+    this.statisticsService.getChannelPostIndeces().subscribe(indeces => {
+      this.getPieChartData(indeces[0], indeces[1]);
     });
   }
 

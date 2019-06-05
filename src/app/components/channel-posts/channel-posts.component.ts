@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChannelsService } from 'src/app/services/channels.service';
 import { PostContentComponent } from '../post-content/post-content.component';
-import { StatisticsComponent } from '../statistics/statistics.component';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-channel-posts',
@@ -17,10 +17,8 @@ export class ChannelPostsComponent implements OnInit {
   @Input()
   postContentComponent:PostContentComponent;
 
-  @Input()
-  statisticsComponent:StatisticsComponent;
-
-  constructor(private channelsService: ChannelsService) { }
+  constructor(private channelsService: ChannelsService,
+    private statisticsService: StatisticsService) { }
 
   ngOnInit() {
   }
@@ -41,7 +39,7 @@ export class ChannelPostsComponent implements OnInit {
   }
 
   renderStatisticsPiechart(postIdx: number) {
-    this.statisticsComponent.getPieChartData(this.activeChannelIdx, postIdx);
+    this.statisticsService.setChannelPostIndeces(this.activeChannelIdx, postIdx);
   }
 
   fillPostTitleArray(indx: number) {

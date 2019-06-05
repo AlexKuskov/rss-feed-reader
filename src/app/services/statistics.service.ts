@@ -8,7 +8,8 @@ import { Subject } from 'rxjs';
 export class StatisticsService {
 
   channelPostsNumber: number = 0;
-  private subject = new Subject<any>();
+  private channelIdxSubject = new Subject<any>();
+  private twoIdxSubject = new Subject<any>();
 
   constructor(private channelsService: ChannelsService) { }
 
@@ -17,10 +18,18 @@ export class StatisticsService {
   }
 
   setChannelIndex(channelIdx: number) {
-    this.subject.next(channelIdx);
+    this.channelIdxSubject.next(channelIdx);
   }
 
   getChannelIndex() {
-    return this.subject.asObservable();
+    return this.channelIdxSubject.asObservable();
+  }
+
+  setChannelPostIndeces(channelIdx: number, postIdx: number) {
+    this.twoIdxSubject.next([channelIdx, postIdx]);
+  }
+
+  getChannelPostIndeces() {
+    return this.twoIdxSubject.asObservable();
   }
 }
