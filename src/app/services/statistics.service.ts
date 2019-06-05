@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ChannelsService } from './channels.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { ChannelsService } from './channels.service';
 export class StatisticsService {
 
   channelPostsNumber: number = 0;
+  private subject = new Subject<any>();
 
   constructor(private channelsService: ChannelsService) { }
 
@@ -14,11 +16,11 @@ export class StatisticsService {
     return this.channelsService.channelList.length;
   }
 
-  getChannelPostsNumber() {
-    return this.channelsService.getChannelDataById(0);
+  setChannelIndex(channelIdx: number) {
+    this.subject.next(channelIdx);
   }
 
-  getChannelAuthoursNumber() {
-    return this.channelsService.getChannelDataById(0);
+  getChannelIndex() {
+    return this.subject.asObservable();
   }
 }

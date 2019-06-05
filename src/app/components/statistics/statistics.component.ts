@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChannelsService } from 'src/app/services/channels.service';
 import { ChannelData } from 'src/app/models/ChannelData';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-statistics',
@@ -19,10 +20,17 @@ export class StatisticsComponent implements OnInit {
   channelAuthoursNumber: number;
 
   
-  constructor(private channelsService: ChannelsService) { }
+  constructor(private channelsService: ChannelsService, 
+    private statisticsService: StatisticsService) {
+      
+  }
 
   ngOnInit() {
     this.getChannelsNumber();
+    this.statisticsService.getChannelIndex().subscribe(index => {
+      this.getChannelPostsNumber(index);
+      this.getChannelAuthoursNumber(index);
+    });
   }
 
   getChannelsNumber() {
@@ -31,7 +39,7 @@ export class StatisticsComponent implements OnInit {
 
   getChannelPostsNumber(channelIdx: number) {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      this.channelPostsNumber = channelData["items"].length;
+      this.channelPostsNumber = channelData.items.length;
     });
   }
 
@@ -39,8 +47,8 @@ export class StatisticsComponent implements OnInit {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let authors: string[] = [];
 
-      for (let item of channelData["items"]) {
-        let author: string = item["author"];
+      for (let item of channelData.items) {
+        let author: string = item.author;
         if (author === "") continue;
 
         if (!~authors.indexOf(author)) {

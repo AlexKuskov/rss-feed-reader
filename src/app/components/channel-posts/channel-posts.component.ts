@@ -23,7 +23,6 @@ export class ChannelPostsComponent implements OnInit {
   constructor(private channelsService: ChannelsService) { }
 
   ngOnInit() {
-    this.fillPostTitleArray(0);
   }
 
   clearPostTitles() {
