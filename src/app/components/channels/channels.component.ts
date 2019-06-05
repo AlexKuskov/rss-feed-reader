@@ -24,19 +24,23 @@ export class ChannelsComponent implements OnInit {
     this.fillChannelTitlesArray();
   }
 
-  renderPostList(i: number) {
+  showPostList(i: number) {
     if (i !== this.prevIdx) {
       if (!this.channelPostsComponent.panelState) {
         this.channelPostsComponent.panelToggle();
       }
 
-      this.channelPostsComponent.clearPostTitles();
-      this.channelPostsComponent.fillPostTitleArray(i);
-      this.renderStatisticsData(i);
+      this.renderPostListData(i);
       this.prevIdx = i;
     } else {
       this.channelPostsComponent.panelToggle();
     }
+  }
+
+  renderPostListData(i: number) {
+    this.channelPostsComponent.clearPostTitles();
+    this.channelPostsComponent.fillPostTitleArray(i);
+    this.renderStatisticsData(i);
   }
 
   renderStatisticsData(channelIdx: number) {
