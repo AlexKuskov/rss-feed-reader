@@ -1,3 +1,5 @@
+$statistics-content-width: 100%;
+
 .statistics {
     height: 100vh;
     width: 100%;
@@ -6,14 +8,14 @@
     overflow: hidden;
 
     &__title {
-        width: 100%;
+        width: $statistics-content-width;
         text-align: center;
         font-size: 1.5em;
     }
     
     &__amounts-container {
         height: 50%;
-        width: 100%;
+        width: $statistics-content-width;
         border-top: 2px solid rgb(231, 231, 231);
         border-bottom: 2px solid rgb(231, 231, 231);
         font-size: 1.2rem;
@@ -25,7 +27,7 @@
     }
     
     &__pie-container {
-        width: 100%;
+        width: $statistics-content-width;
         height: 50%;
         padding: 0 3px; 
     }

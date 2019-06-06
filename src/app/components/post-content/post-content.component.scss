@@ -1,4 +1,6 @@
 $tags-vertical-padding: 2px;
+$content-width: 100%;
+$animation-duration: 0.3s;
 
 :host {
     z-index: 1;
@@ -26,20 +28,20 @@ $tags-vertical-padding: 2px;
         font-size: 1.4rem;
         text-align: center;
         color: rgb(114, 114, 114);
-        width: 100%;
+        width: $content-width;
         height: 100%;
         user-select: none;
     
-        -webkit-transition: width 0.3s;
-        transition: width 0.3s;
+        -webkit-transition: width $animation-duration;
+        transition: width $animation-duration;
     }
     
     &__data-container {
         position: absolute;
         right: 0;
-        width: 100%;
-        -webkit-transition: width 0.3s;
-        transition: width 0.3s;
+        width: $content-width;
+        -webkit-transition: width $animation-duration;
+        transition: width $animation-duration;
     }
     
     &__data-container--shrinked {
@@ -48,13 +50,13 @@ $tags-vertical-padding: 2px;
     
     &__title {
         font-size: 1.5rem;
-        width: 100%;
+        width: $content-width;
         text-align: center;
         margin-bottom: 5%;
     }
 
     &__author-pubdate-section {
-        width: 100%;
+        width: $content-width;
         font-weight: bold;
         margin-bottom: 30px;
         padding: 0 10px;
@@ -89,7 +91,7 @@ $tags-vertical-padding: 2px;
     }
 
     &__button-container {
-        width: 100%;
+        width: $content-width;
         text-align: center;
         margin-bottom: 30px;
         margin-top: 15px;
