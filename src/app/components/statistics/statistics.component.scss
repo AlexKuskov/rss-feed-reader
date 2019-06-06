@@ -1,7 +1,6 @@
 .statistics {
-    float: right;
     height: 100vh;
-    width: 17%;
+    width: 100%;
     background-color: rgb(192, 192, 192);
     user-select: none;
 
@@ -22,7 +21,6 @@
         padding: 0 3px;
     
         .statistics-amounts{
-            float: none;
             height: 33.33%;
         }
     }
