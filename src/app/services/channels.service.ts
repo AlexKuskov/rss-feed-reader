@@ -25,21 +25,6 @@ export class ChannelsService {
 
   constructor(private http: HttpClient) { }
 
-  channels: Array<any> = [];
-
-  getAllChannelData() {
-    for (let channelListItem of this.channelList) {
-      this.http.get(this.xmlToJsonConverter + channelListItem)
-      .pipe(
-        catchError(this.errorHandler)
-      ).subscribe(response => {
-        this.channels.push(response)
-      });
-    }
-
-    return this.channels;
-  }
-
   getChannelDataById(i: number): Observable<ChannelData> {
     return this.http.get<ChannelData>(this.xmlToJsonConverter + this.channelList[i])
     .pipe(
