@@ -17,15 +17,7 @@ $tags-vertical-padding: 2px;
     overflow-y: auto;
     overflow-x: hidden;
 
-    .content-container {
-        position: absolute;
-        right: 0;
-        width: 100%;
-        -webkit-transition: width 0.3s;
-        transition: width 0.3s;
-    }
-    
-    .choose-post-text {
+    &__initial-text {
         display: flex;
         justify-content:center;
         align-content:center;
@@ -37,45 +29,53 @@ $tags-vertical-padding: 2px;
         width: 100%;
         height: 100%;
         user-select: none;
-
+    
         -webkit-transition: width 0.3s;
         transition: width 0.3s;
     }
-
-    .shrinked-post-content {
+    
+    &__data-container {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        -webkit-transition: width 0.3s;
+        transition: width 0.3s;
+    }
+    
+    &__data-container--shrinked {
         width: 73%;
     }
-
-    .post-title {
+    
+    &__title {
         font-size: 1.5rem;
         width: 100%;
         text-align: center;
         margin-bottom: 5%;
     }
 
-    .author-pubdate-section {
+    &__author-pubdate-section {
         width: 100%;
         font-weight: bold;
         margin-bottom: 30px;
         padding: 0 10px;
         box-sizing: border-box;
-        
-    
-        .author {
-            display: inline-block;
-            width: 50%;
-        }
-    
-        .pub-date {
-            text-align: right;
-            float: right;
-        }
     }
 
-     .content {
+    &__author {
+        display: inline-block;
+        width: 50%;
+    }
+
+    &__pub-date {
+        float: right;
+    }
+
+    &__main-content {
         padding: 0 10px;
         box-sizing: border-box;
 
+        // it's necessary to use tags here, because provided Html data from server 
+        // provides tags without classes
         img {
             display: block;
             max-width: 90%;
@@ -88,14 +88,14 @@ $tags-vertical-padding: 2px;
         }
     }
 
-    .button-container {
+    &__button-container {
         width: 100%;
         text-align: center;
         margin-bottom: 30px;
         margin-top: 15px;
     }
 
-    .visit-website-btn {
+    &__visit-website-btn {
         display: inline-block;
         border: 1px solid black;
         border-radius: 50px;
@@ -109,30 +109,29 @@ $tags-vertical-padding: 2px;
         background-color: rgb(221, 221, 221);
     }
 
-    .categories-section {
+    &__categories-section {
         padding: 0 10px;
         margin-bottom: 10px;
+    }
 
-        .tags-text {
-            float: left;
-            font-weight: bold;
-            font-size: 0.8rem;
-            padding: $tags-vertical-padding 0;
-            margin-left: 5px;
-        }
+    &__tags-text {
+        float: left;
+        font-weight: bold;
+        font-size: 0.8rem;
+        padding: $tags-vertical-padding 0;
+        margin-left: 5px;
+    }
 
-        .category-container {
-            float: left;
-        }
-        
-        .category {
-            font-size: 0.7rem;
-            border: 1px solid black;
-            border-radius: 50px;
-            margin: 0 5px;
-            padding: $tags-vertical-padding 8px;
-            line-height: 2.2em;
-        }
+    &__category-container {
+        float: left;
     }
     
+    &__category {
+        font-size: 0.7rem;
+        border: 1px solid black;
+        border-radius: 50px;
+        margin: 0 5px;
+        padding: $tags-vertical-padding 8px;
+        line-height: 2.2em;
+    }
 }

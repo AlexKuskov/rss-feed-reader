@@ -1,23 +1,26 @@
 <div class="post-content">
     <ng-template [ngIf]="isChannelPostDataDefined()">
-        <div [ngClass]="{ 'shrinked-post-content': postContentState }" class="content-container choose-post-text">Please choose a channel post to see its content here</div>
+        <div [ngClass]="{ 'post-content__data-container--shrinked': postContentState }" 
+             class="post-content__data-container post-content__initial-text">
+            Please choose a channel post to see its content here
+        </div>
     </ng-template>
 
-    <div class="content-container" [ngClass]="{ 'shrinked-post-content': postContentState }" 
+    <div class="post-content__data-container" [ngClass]="{ 'post-content__data-container--shrinked': postContentState }" 
         *ngFor="let post of channelPostData">
-        <div class="post-title">{{ post.title }}</div> <br>
-        <div class="author-pubdate-section">
-            <div *ngIf="isPostAuthorDefined(post.author)" class="author">By {{ post.author }}</div> 
-            <div class="pub-date">{{ post.pubDate }}</div>
+        <div class="post-content__title">{{ post.title }}</div> <br>
+        <div class="post-content__author-pubdate-section">
+            <div *ngIf="isPostAuthorDefined(post.author)" class="post-content__author">By {{ post.author }}</div> 
+            <div class="post-content__pub-date">{{ post.pubDate }}</div>
         </div>
-        <div class="content" [innerHTML]="post.content"></div> <br>
-        <div class="button-container">
-            <a class="visit-website-btn" [href]="post.link" target="_blank">Visit Website</a> <br>
+        <div class="post-content__main-content" [innerHTML]="post.content"></div> <br>
+        <div class="post-content__button-container">
+            <a class="post-content__visit-website-btn" [href]="post.link" target="_blank">Visit Website</a> <br>
         </div> 
-        <div class="categories-section">
-            <div class="tags-text" *ngIf="isPostCategoriesDefined(post.categories)">Tags:</div>
-            <div class="category-container" *ngFor="let category of post.categories">
-                <i class="category">{{ category }}</i>
+        <div class="post-content__categories-section">
+            <div class="post-content__tags-text" *ngIf="isPostCategoriesDefined(post.categories)">Tags:</div>
+            <div class="post-content__category-container" *ngFor="let category of post.categories">
+                <i class="post-content__category">{{ category }}</i>
             </div> 
         </div> 
     </div>

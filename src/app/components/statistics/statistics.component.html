@@ -1,22 +1,25 @@
 <div class="statistics">
-    <div class="statistics-title">Website Statistics</div>
-    <div class="statistics-amounts-container">
-        <div class="statistics-amounts">Channels: <br> {{ channelsNumber }}</div>
-        <div class="statistics-amounts">
+    <div class="statistics__title">Website Statistics</div>
+    <div class="statistics__amounts-container">
+        <div class="statistics__amounts">Channels: <br> {{ channelsNumber }}</div>
+        <div class="statistics__amounts">
             Channel Posts: <br> 
             {{ channelPostsNumber }}
-            <span *ngIf="isChannelPostsNumberDefined()" class="hint">Please click on a channel to see the number of its posts</span>
+            <span *ngIf="isChannelPostsNumberDefined()" class="statistics__hint">
+                Please click on a channel to see the number of its posts</span>
         </div>
-        <div class="statistics-amounts">
+        <div class="statistics__amounts">
             Channel Post Authors: <br> 
             {{ channelAuthorsNumber }}
-            <span *ngIf="isChannelAuthorsNumberDefined()" class="hint">Please click on a channel to see the number of post authors </span>
+            <span *ngIf="isChannelAuthorsNumberDefined()" class="statistics__hint">
+                Please click on a channel to see the number of post authors </span>
         </div>
     </div>
     
-    <div class="pie-container">
-        <span *ngIf="isPieChartLabelsDefined()" class="hint">Please click on a post to see the frequency of the letters in the post</span>
-        <div *ngIf="!isPieChartLabelsDefined()" class="pie-chart">
+    <div class="statistics__pie-container">
+        <span *ngIf="isPieChartLabelsDefined()" class="statistics__hint statistics__hint--lower">
+            Please click on a post to see the frequency of the letters in the post</span>
+        <div *ngIf="!isPieChartLabelsDefined()" class="statistics__pie-chart">
             <canvas baseChart
             [data]="pieChartData"
             [labels]="pieChartLabels"
