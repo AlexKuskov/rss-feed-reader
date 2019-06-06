@@ -16,7 +16,7 @@
         </div> 
         <div class="categories-section">
             <div class="tags-text" *ngIf="isPostCategoriesDefined(post.categories)">Tags:</div>
-            <div *ngFor="let category of post.categories">
+            <div class="category-container" *ngFor="let category of post.categories">
                 <i class="category">{{ category }}</i>
             </div> 
         </div> 
