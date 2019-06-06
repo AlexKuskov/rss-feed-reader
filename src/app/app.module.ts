@@ -11,6 +11,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { ChannelsService } from './services/channels.service';
 
 import { ChartsModule } from 'ng2-charts';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    FlexLayoutModule
   ],
   providers: [ChannelsService],
   bootstrap: [AppComponent]
