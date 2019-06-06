@@ -13,7 +13,7 @@ $tags-vertical-padding: 2px;
     overflow-y: auto;
     overflow-x: hidden;
 
-    & > div {
+    .content-container {
         position: absolute;
         right: 0;
         width: 100%;

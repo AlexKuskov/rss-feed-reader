@@ -1,13 +1,13 @@
 <div class="statistics">
     <div class="statistics-title">Website Statistics</div>
-    <div class="statistics-amounts">
-        <div>Channels: <br> {{ channelsNumber }}</div>
-        <div>
+    <div class="statistics-amounts-container">
+        <div class="statistics-amounts">Channels: <br> {{ channelsNumber }}</div>
+        <div class="statistics-amounts">
             Channel Posts: <br> 
             {{ channelPostsNumber }}
             <span *ngIf="isChannelPostsNumberDefined()" class="hint">Please click on a channel to see the number of its posts</span>
         </div>
-        <div>
+        <div class="statistics-amounts">
             Channel Post Authours: <br> 
             {{ channelAuthoursNumber }}
             <span *ngIf="isChannelAuthoursNumberDefined()" class="hint">Please click on a channel to see the number of post authors </span>

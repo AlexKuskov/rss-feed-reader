@@ -13,7 +13,7 @@
         font-size: 1.5em;
     }
 
-    .statistics-amounts {
+    .statistics-amounts-container {
         height: 50%;
         width: 100%;
         border-top: 2px solid rgb(231, 231, 231);
@@ -21,7 +21,7 @@
         font-size: 1.2rem;
         padding: 0 3px;
     
-        div{
+        .statistics-amounts{
             float: none;
             height: 33.33%;
         }

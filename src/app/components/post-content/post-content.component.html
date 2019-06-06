@@ -1,9 +1,10 @@
 <div class="post-content">
     <ng-template [ngIf]="isChannelPostDataDefined()">
-        <div [ngClass]="{ 'shrinked-post-content': postContentState }" class="choose-post-text">Please choose a channel post to see its content here</div>
+        <div [ngClass]="{ 'shrinked-post-content': postContentState }" class="content-container choose-post-text">Please choose a channel post to see its content here</div>
     </ng-template>
 
-    <div [ngClass]="{ 'shrinked-post-content': postContentState }" *ngFor="let post of channelPostData">
+    <div class="content-container" [ngClass]="{ 'shrinked-post-content': postContentState }" 
+        *ngFor="let post of channelPostData">
         <div class="post-title">{{ post.title }}</div> <br>
         <div class="author-pubdate-section">
             <div *ngIf="isPostAuthorDefined(post.author)" class="author">By {{ post.author }}</div> 
