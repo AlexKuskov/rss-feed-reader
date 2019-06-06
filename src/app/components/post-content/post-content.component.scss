@@ -3,11 +3,11 @@ $tags-vertical-padding: 2px;
 .post-content {
     position: absolute;
     top: 0;
-    right: 17vw;
+    right: 17%;
     z-index: -2;
     font-size: 0.8rem;
-    height: 100vh;
-    width: 68vw;
+    height: 100%;
+    width: 68%;
     background-color: white;
     box-sizing: border-box;
     overflow-y: auto;
@@ -16,7 +16,7 @@ $tags-vertical-padding: 2px;
     & > div {
         position: absolute;
         right: 0;
-        width: 68vw;
+        width: 100%;
         -webkit-transition: width 0.3s;
         transition: width 0.3s;
     }
@@ -39,14 +39,14 @@ $tags-vertical-padding: 2px;
     }
 
     .shrinked-post-content {
-        width: 49vw;
+        width: 73%;
     }
 
     .post-title {
         font-size: 1.5rem;
         width: 100%;
         text-align: center;
-        margin-bottom: 5vh;
+        margin-bottom: 5%;
     }
 
     .author-pubdate-section {
@@ -75,11 +75,11 @@ $tags-vertical-padding: 2px;
             display: block;
             max-width: 90%;
             margin: 0 auto;
-            margin-bottom: 2vh;
+            margin-bottom: 2%;
         }
     
         p {
-            margin-bottom: 3vh;
+            margin-bottom: 3%;
         }
     }
 
