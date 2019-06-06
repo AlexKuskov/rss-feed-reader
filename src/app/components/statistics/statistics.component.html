@@ -5,18 +5,18 @@
         <div>
             Channel Posts: <br> 
             {{ channelPostsNumber }}
-            <span *ngIf="channelPostsNumber == undefined" class="hint">Please click on a channel to see the number of its posts</span>
+            <span *ngIf="isChannelPostsNumberDefined()" class="hint">Please click on a channel to see the number of its posts</span>
         </div>
         <div>
             Channel Post Authours: <br> 
             {{ channelAuthoursNumber }}
-            <span *ngIf="channelAuthoursNumber == undefined" class="hint">Please click on a channel to see the number of post authors </span>
+            <span *ngIf="isChannelAuthoursNumberDefined()" class="hint">Please click on a channel to see the number of post authors </span>
         </div>
     </div>
     
     <div class="pie-container">
-        <span *ngIf="pieChartLabels == undefined" class="hint">Please click on a post to see the frequency of the letters in the post</span>
-        <div *ngIf="pieChartLabels != undefined" class="pie-chart">
+        <span *ngIf="isPieChartLabelsDefined()" class="hint">Please click on a post to see the frequency of the letters in the post</span>
+        <div *ngIf="!isPieChartLabelsDefined()" class="pie-chart">
             <canvas baseChart
             [data]="pieChartData"
             [labels]="pieChartLabels"

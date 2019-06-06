@@ -115,4 +115,16 @@ export class StatisticsComponent implements OnInit {
         };
   }
 
+  isChannelPostsNumberDefined() {
+    return this.channelPostsNumber == undefined;
+  }
+
+  isChannelAuthoursNumberDefined() {
+    return this.channelAuthoursNumber == undefined;
+  }
+
+  isPieChartLabelsDefined() {
+    return this.pieChartLabels == undefined;
+  }
+
 }

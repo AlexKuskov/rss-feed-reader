@@ -49,4 +49,16 @@ export class PostContentComponent implements OnInit {
   clearPostData() {
     this.channelPostData = [];
   }
+
+  isChannelPostDataDefined() {
+    return this.channelPostData == undefined;
+  }
+
+  isPostAuthorDefined(postAuthor: string) {
+    return postAuthor != '';
+  }
+
+  isPostCategoriesDefined(categories: []) {
+    return categories.length > 0;
+  }
 }

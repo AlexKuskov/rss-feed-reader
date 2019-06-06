@@ -1,12 +1,12 @@
 <div class="post-content">
-    <ng-template [ngIf]="channelPostData == undefined">
+    <ng-template [ngIf]="isChannelPostDataDefined()">
         <div [ngClass]="{ 'shrinked-post-content': postContentState }" class="choose-post-text">Please choose a channel post to see its content here</div>
     </ng-template>
 
     <div [ngClass]="{ 'shrinked-post-content': postContentState }" *ngFor="let post of channelPostData">
         <div class="post-title">{{ post.title }}</div> <br>
         <div class="author-pubdate-section">
-            <div *ngIf="post.author != ''" class="author">By {{ post.author }}</div> 
+            <div *ngIf="isPostAuthorDefined(post.author)" class="author">By {{ post.author }}</div> 
             <div class="pub-date">{{ post.pubDate }}</div>
         </div>
         <div class="content" [innerHTML]="post.content"></div> <br>
@@ -14,7 +14,7 @@
             <a class="visit-website-btn" [href]="post.link" target="_blank">Visit Website</a> <br>
         </div> 
         <div class="categories-section">
-            <div class="tags-text" *ngIf="post.categories.length > 0">Tags:</div>
+            <div class="tags-text" *ngIf="isPostCategoriesDefined(post.categories)">Tags:</div>
             <div *ngFor="let category of post.categories">
                 <i class="category">{{ category }}</i>
             </div> 

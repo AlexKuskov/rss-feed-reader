@@ -60,4 +60,8 @@ export class ChannelPostsComponent implements OnInit {
       }
     });
   }
+
+  getPostListItemHeight() {
+    return 10 < this.channelPostTitle.length ? '10vh' : '10%';
+  }
 }
