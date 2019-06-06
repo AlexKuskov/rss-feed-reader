@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 export class ChannelPostContentService {
 
   private subject = new Subject<any>();
+  private panelToggleSubject = new Subject<any>();
 
   constructor() { }
 
@@ -16,5 +17,13 @@ export class ChannelPostContentService {
 
   setPostContentState(postContentState: boolean) {
     this.subject.next(postContentState);
+  }
+
+  switchPanelToggle() {
+    this.panelToggleSubject.next();
+  }
+
+  panelToggleLauncher() {
+    return this.panelToggleSubject.asObservable();
   }
 }

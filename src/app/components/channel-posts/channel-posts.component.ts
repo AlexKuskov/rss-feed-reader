@@ -19,6 +19,13 @@ export class ChannelPostsComponent implements OnInit {
     private channelPostContentService: ChannelPostContentService) { }
 
   ngOnInit() {
+    this.statisticsService.getChannelIndex().subscribe(channelIdx => {
+      this.clearPostTitles();
+      this.fillPostTitleArray(channelIdx);
+    });
+    this.channelPostContentService.panelToggleLauncher().subscribe(() => {
+      this.panelToggle();
+    });
   }
 
   clearPostTitles() {

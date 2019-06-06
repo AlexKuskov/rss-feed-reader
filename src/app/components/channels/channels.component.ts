@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ChannelsService } from '../../services/channels.service';
-import { ChannelPostsComponent } from '../channel-posts/channel-posts.component';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
 
 @Component({
   selector: 'app-channels',
@@ -11,38 +11,34 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 export class ChannelsComponent implements OnInit {
   channelTitles: string[] = [];
   prevIdx: number;
-
-  @Input()
-  channelPostsComponent:ChannelPostsComponent;
+  postContentState: boolean;
 
   constructor(private channelsService: ChannelsService,
-    private statisticsService: StatisticsService) { }
+    private statisticsService: StatisticsService,
+    private channelPostContentService: ChannelPostContentService) { }
 
   ngOnInit() {
     this.fillChannelTitlesArray();
+    this.channelPostContentService.getPostContentState().subscribe(postContentState => {
+      this.postContentState = postContentState;
+    });
   }
 
   showPostList(i: number) {
     if (i !== this.prevIdx) {
-      if (!this.channelPostsComponent.panelState) {
-        this.channelPostsComponent.panelToggle();
+      if (!this.postContentState) {
+        this.channelPostContentService.switchPanelToggle();
       }
 
-      this.renderPostListData(i);
+      this.renderPostListAndStatisticsData(i);
       this.prevIdx = i;
     } else {
-      this.channelPostsComponent.panelToggle();
+      this.channelPostContentService.switchPanelToggle();
     }
   }
 
-  renderPostListData(i: number) {
-    this.channelPostsComponent.clearPostTitles();
-    this.channelPostsComponent.fillPostTitleArray(i);
-    this.renderStatisticsData(i);
-  }
-
-  renderStatisticsData(channelIdx: number) {
-    this.statisticsService.setChannelIndex(channelIdx);
+  renderPostListAndStatisticsData(i: number) {
+    this.statisticsService.setChannelIndex(i);
   }
 
   fillChannelTitlesArray() {
