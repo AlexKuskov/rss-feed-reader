@@ -17,7 +17,7 @@ export class StatisticsComponent implements OnInit {
 
   channelsNumber: number;
   channelPostsNumber: number;
-  channelAuthoursNumber: number;
+  channelAuthorsNumber: number;
 
   
   constructor(private channelsService: ChannelsService, 
@@ -30,7 +30,7 @@ export class StatisticsComponent implements OnInit {
 
     this.statisticsService.getChannelIndex().subscribe(channelIdx => {
       this.getChannelPostsNumber(channelIdx);
-      this.getChannelAuthoursNumber(channelIdx);
+      this.getChannelAuthorsNumber(channelIdx);
     });
     this.statisticsService.getChannelPostIndeces().subscribe(indeces => {
       this.getPieChartData(indeces[0], indeces[1]);
@@ -47,7 +47,7 @@ export class StatisticsComponent implements OnInit {
     });
   }
 
-  getChannelAuthoursNumber(channelIdx: number) {
+  getChannelAuthorsNumber(channelIdx: number) {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let authors: string[] = [];
 
@@ -60,7 +60,7 @@ export class StatisticsComponent implements OnInit {
         }
       }
 
-      this.channelAuthoursNumber = authors.length;
+      this.channelAuthorsNumber = authors.length;
     });
   }
 
@@ -119,8 +119,8 @@ export class StatisticsComponent implements OnInit {
     return this.channelPostsNumber == undefined;
   }
 
-  isChannelAuthoursNumberDefined() {
-    return this.channelAuthoursNumber == undefined;
+  isChannelAuthorsNumberDefined() {
+    return this.channelAuthorsNumber == undefined;
   }
 
   isPieChartLabelsDefined() {
