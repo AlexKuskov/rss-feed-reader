@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { tap, catchError } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ChannelData } from '../models/ChannelData';
+import { Utils } from '../shared/utils';
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +29,7 @@ export class ChannelsService {
   getChannelDataById(i: number): Observable<ChannelData> {
     return this.http.get<ChannelData>(this.xmlToJsonConverter + this.channels[i])
     .pipe(
-      catchError(this.errorHandler)
+      catchError(Utils.errorHandler)
     );
   }
-
-  errorHandler(error: HttpErrorResponse): Observable<never> {
-    return Observable.throw(error.message || "Server Error");
-  }
-
 }
