@@ -10,7 +10,7 @@ import { ChannelPostContentService } from 'src/app/services/channel-post-content
 })
 export class ChannelPostsComponent implements OnInit {
 
-  channelPostTitle: string[] = [];
+  channelPostTitles: string[] = [];
   activeChannelIdx: number;
   panelState: boolean = false;
 
@@ -21,7 +21,7 @@ export class ChannelPostsComponent implements OnInit {
   ngOnInit() {
     this.statisticsService.getChannelIndex().subscribe(channelIdx => {
       this.clearPostTitles();
-      this.fillPostTitleArray(channelIdx);
+      this.fillPostTitles(channelIdx);
     });
     this.channelPostContentService.panelToggleLauncher().subscribe(() => {
       this.panelToggle();
@@ -29,7 +29,7 @@ export class ChannelPostsComponent implements OnInit {
   }
 
   clearPostTitles(): void {
-    this.channelPostTitle = [];
+    this.channelPostTitles = [];
   }
 
   panelToggle(): void {
@@ -46,16 +46,16 @@ export class ChannelPostsComponent implements OnInit {
     this.statisticsService.setChannelPostIndeces(this.activeChannelIdx, postIdx);
   }
 
-  fillPostTitleArray(indx: number): void {
+  fillPostTitles(indx: number): void {
     this.activeChannelIdx = indx;
 
     this.channelsService.getChannelDataById(indx).subscribe(channelData => {
       for (let i = 0; i < channelData.items.length; i++) {
-        this.channelPostTitle.push(channelData.items[i].title);
+        this.channelPostTitles.push(channelData.items[i].title);
         //added next code to emulate more than 10 items, because https://rss2json.com/ service doesn't allow
         //to load more than 10 items at once
         if (indx === 2) {
-          this.channelPostTitle.push(channelData.items[i].title);
+          this.channelPostTitles.push(channelData.items[i].title);
         }
       }
     });

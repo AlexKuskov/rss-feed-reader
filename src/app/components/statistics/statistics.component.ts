@@ -38,7 +38,7 @@ export class StatisticsComponent implements OnInit {
   }
 
   getChannelsNumber(): void {
-    this.channelsNumber = this.channelsService.channelList.length;
+    this.channelsNumber = this.channelsService.channels.length;
   }
 
   getChannelPostsNumber(channelIdx: number): void {

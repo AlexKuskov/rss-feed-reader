@@ -1,5 +1,5 @@
 <div class="channel-posts" [ngClass]="{ 'channel-posts--opened-panel': panelState }">
-    <div class="channel-posts__post" *ngFor="let channelPost of channelPostTitle; let even = even; let idx = index;"
+    <div class="channel-posts__post" *ngFor="let channelPost of channelPostTitles; let even = even; let idx = index;"
          [ngClass]="{ 'channel-posts__post--even': even }" (click)="renderPostContent(idx)">
         <div>{{ channelPost }}</div>
     </div>

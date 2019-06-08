@@ -8,7 +8,7 @@ import { ChannelData } from '../models/ChannelData';
   providedIn: 'root'
 })
 export class ChannelsService {
-  channelList: string[] = [
+  channels: string[] = [
     "https://www.rogerebert.com/feed",
     "https://www.instyle.com/feeds/all/ins.rss",
     "https://www.engadget.com/rss.xml",
@@ -26,7 +26,7 @@ export class ChannelsService {
   constructor(private http: HttpClient) { }
 
   getChannelDataById(i: number): Observable<ChannelData> {
-    return this.http.get<ChannelData>(this.xmlToJsonConverter + this.channelList[i])
+    return this.http.get<ChannelData>(this.xmlToJsonConverter + this.channels[i])
     .pipe(
       catchError(this.errorHandler)
     );

@@ -18,31 +18,31 @@ export class ChannelsComponent implements OnInit {
     private channelPostContentService: ChannelPostContentService) { }
 
   ngOnInit() {
-    this.fillChannelTitlesArray();
+    this.fillChannelTitles();
     this.channelPostContentService.getPostContentState().subscribe(postContentState => {
       this.postContentState = postContentState;
     });
   }
 
-  showPostList(i: number): void {
+  showPostPanel(i: number): void {
     if (i !== this.prevIdx) {
       if (!this.postContentState) {
         this.channelPostContentService.switchPanelToggle();
       }
 
-      this.renderPostListAndStatisticsData(i);
+      this.renderPostPanelAndStatisticsData(i);
       this.prevIdx = i;
     } else {
       this.channelPostContentService.switchPanelToggle();
     }
   }
 
-  renderPostListAndStatisticsData(i: number): void {
+  renderPostPanelAndStatisticsData(i: number): void {
     this.statisticsService.setChannelIndex(i);
   }
 
-  fillChannelTitlesArray(): void {
-    for (let i = 0; i < this.channelsService.channelList.length; i++) {
+  fillChannelTitles(): void {
+    for (let i = 0; i < this.channelsService.channels.length; i++) {
       this.channelsService.getChannelDataById(i).subscribe(channelData => {
         this.channelTitles[i] = channelData.feed.title;
        });
