@@ -1,13 +1,7 @@
+import { ChannelPostData } from './ChannelPostData';
+import { ChannelTitle } from './ChannelTitle';
+
 export class ChannelData {
-    feed: {
-        title: string;
-    };
-    items: [{
-        title: string;
-        content: string;
-        categories: [];
-        pubDate: string;
-        link: string;
-        author: string;
-    }];
+    feed: ChannelTitle;
+    items: Array<ChannelPostData>;
 }

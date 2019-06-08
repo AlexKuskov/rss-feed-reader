@@ -84,8 +84,8 @@ export class StatisticsComponent implements OnInit {
   }
 
   getAllPostContentCharacters(channelData: ChannelData, i: number): string {
-    return channelData.items[i].content.concat(
-      channelData.items[i].title,
+    return channelData.items[i].title.concat(
+      channelData.items[i].content.toString(),
       channelData.items[i].categories.toString(),
       channelData.items[i].author
     );

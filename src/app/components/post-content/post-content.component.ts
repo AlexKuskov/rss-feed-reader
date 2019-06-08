@@ -33,7 +33,9 @@ export class PostContentComponent implements OnInit {
 
   fillPostData(channelIdx: number, postIdx: number): void {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      let secureContent: SafeHtml = this.domSanitizer.bypassSecurityTrustHtml(channelData.items[postIdx].content);
+      
+      let secureContent: SafeHtml = 
+          this.domSanitizer.bypassSecurityTrustHtml(channelData.items[postIdx].content.toString());
      
       this.channelPostData = [{
         title: channelData.items[postIdx].title,
