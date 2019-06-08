@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChannelsService } from '../../services/channels.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
@@ -24,7 +24,7 @@ export class ChannelsComponent implements OnInit {
     });
   }
 
-  showPostList(i: number) {
+  showPostList(i: number): void {
     if (i !== this.prevIdx) {
       if (!this.postContentState) {
         this.channelPostContentService.switchPanelToggle();
@@ -37,11 +37,11 @@ export class ChannelsComponent implements OnInit {
     }
   }
 
-  renderPostListAndStatisticsData(i: number) {
+  renderPostListAndStatisticsData(i: number): void {
     this.statisticsService.setChannelIndex(i);
   }
 
-  fillChannelTitlesArray() {
+  fillChannelTitlesArray(): void {
     for (let i = 0; i < this.channelsService.channelList.length; i++) {
       this.channelsService.getChannelDataById(i).subscribe(channelData => {
         this.channelTitles[i] = channelData.feed.title;

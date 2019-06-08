@@ -10,10 +10,10 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 })
 export class StatisticsComponent implements OnInit {
 
-  public pieChartLabels:string[];
-  public pieChartData:number[];
-  public pieChartType:string; 
-  public pieChartOptions:any;
+  public pieChartLabels: string[];
+  public pieChartData: number[];
+  public pieChartType: string; 
+  public pieChartOptions: Object;
 
   channelsNumber: number;
   channelPostsNumber: number;
@@ -37,17 +37,17 @@ export class StatisticsComponent implements OnInit {
     });
   }
 
-  getChannelsNumber() {
+  getChannelsNumber(): void {
     this.channelsNumber = this.channelsService.channelList.length;
   }
 
-  getChannelPostsNumber(channelIdx: number) {
+  getChannelPostsNumber(channelIdx: number): void {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       this.channelPostsNumber = channelData.items.length;
     });
   }
 
-  getChannelAuthorsNumber(channelIdx: number) {
+  getChannelAuthorsNumber(channelIdx: number): void {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
       let authors: string[] = [];
 
@@ -64,9 +64,9 @@ export class StatisticsComponent implements OnInit {
     });
   }
 
-  getPieChartData(channelIdx: number, postIdx: number) {
+  getPieChartData(channelIdx: number, postIdx: number): void {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      let letters = {};
+      let letters: Object = {};
       
       let content: string = this.getAllPostContentCharacters(channelData, postIdx);                     
       let contentLetters: string[] = this.getLetters(content);
@@ -77,15 +77,13 @@ export class StatisticsComponent implements OnInit {
     });
   }
 
-  getLetters(content: string) {
+  getLetters(content: string): string[] {
     content = content.toLowerCase();
 
-    return content.split('').filter(i => {
-      return ('a' <= i && i <= 'z');
-    });
+    return content.split('').filter(i => 'a' <= i && i <= 'z');
   }
 
-  getAllPostContentCharacters(channelData: ChannelData, i: number) {
+  getAllPostContentCharacters(channelData: ChannelData, i: number): string {
     return channelData.items[i].content.concat(
       channelData.items[i].title,
       channelData.items[i].categories.toString(),
@@ -94,7 +92,7 @@ export class StatisticsComponent implements OnInit {
   }
 
   getEachLetterNumber(contentLetters: string[]): Object {
-    let letters = {};
+    let letters: Object = {};
 
     for (let i = 0; i < contentLetters.length; i++) {
       let num = contentLetters[i];
@@ -104,7 +102,7 @@ export class StatisticsComponent implements OnInit {
     return letters;
   }
 
-  setPieChartProperties(letters: Object) {
+  setPieChartProperties(letters: Object): void {
     this.pieChartLabels = Object.keys(letters);
     this.pieChartData = Object.values(letters);
     this.pieChartType = 'pie';
@@ -115,15 +113,15 @@ export class StatisticsComponent implements OnInit {
         };
   }
 
-  isChannelPostsNumberDefined() {
+  isChannelPostsNumberDefined(): boolean {
     return this.channelPostsNumber == undefined;
   }
 
-  isChannelAuthorsNumberDefined() {
+  isChannelAuthorsNumberDefined(): boolean {
     return this.channelAuthorsNumber == undefined;
   }
 
-  isPieChartLabelsDefined() {
+  isPieChartLabelsDefined(): boolean {
     return this.pieChartLabels == undefined;
   }
 

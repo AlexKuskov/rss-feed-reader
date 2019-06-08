@@ -32,7 +32,7 @@ export class ChannelsService {
     );
   }
 
-  errorHandler(error: HttpErrorResponse) {
+  errorHandler(error: HttpErrorResponse): Observable<never> {
     return Observable.throw(error.message || "Server Error");
   }
 

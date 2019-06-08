@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChannelPostContentService {
 
-  private subject = new Subject<any>();
-  private panelToggleSubject = new Subject<any>();
+  private postContentStateTransmitter: Subject<boolean> = new Subject<boolean>();
+  private panelToggleSubject: Subject<void> = new Subject<void>();
 
   constructor() { }
 
-  getPostContentState() {
-    return this.subject.asObservable();
+  getPostContentState(): Observable<boolean> {
+    return this.postContentStateTransmitter.asObservable();
   }
 
-  setPostContentState(postContentState: boolean) {
-    this.subject.next(postContentState);
+  setPostContentState(postContentState: boolean): void {
+    this.postContentStateTransmitter.next(postContentState);
   }
 
-  switchPanelToggle() {
+  switchPanelToggle(): void {
     this.panelToggleSubject.next();
   }
 
-  panelToggleLauncher() {
+  panelToggleLauncher(): Observable<void> {
     return this.panelToggleSubject.asObservable();
   }
 }

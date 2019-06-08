@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ChannelsService } from '../../services/channels.service';
 import { ChannelPostData } from '../../models/ChannelPostData';
 import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
@@ -31,9 +31,9 @@ export class PostContentComponent implements OnInit {
     });
   }
 
-  fillPostData(channelIdx: number, postIdx: number) {
+  fillPostData(channelIdx: number, postIdx: number): void {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      let secureContent = this.domSanitizer.bypassSecurityTrustHtml(channelData.items[postIdx].content);
+      let secureContent: SafeHtml = this.domSanitizer.bypassSecurityTrustHtml(channelData.items[postIdx].content);
      
       this.channelPostData = [{
         title: channelData.items[postIdx].title,
@@ -46,19 +46,19 @@ export class PostContentComponent implements OnInit {
     });
   }
 
-  clearPostData() {
+  clearPostData(): void {
     this.channelPostData = [];
   }
 
-  isChannelPostDataDefined() {
+  isChannelPostDataDefined(): boolean {
     return this.channelPostData == undefined;
   }
 
-  isPostAuthorDefined(postAuthor: string) {
+  isPostAuthorDefined(postAuthor: string): boolean {
     return postAuthor != '';
   }
 
-  isPostCategoriesDefined(categories: []) {
+  isPostCategoriesDefined(categories: Array<string>): boolean {
     return categories.length > 0;
   }
 }

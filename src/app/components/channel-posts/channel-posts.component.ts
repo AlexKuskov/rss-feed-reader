@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChannelsService } from 'src/app/services/channels.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
@@ -28,25 +28,25 @@ export class ChannelPostsComponent implements OnInit {
     });
   }
 
-  clearPostTitles() {
+  clearPostTitles(): void {
     this.channelPostTitle = [];
   }
 
-  panelToggle() {
+  panelToggle(): void {
     this.panelState = !this.panelState;
     this.channelPostContentService.setPostContentState(this.panelState);
   }
 
-  renderPostContent(postIdx: number) {
+  renderPostContent(postIdx: number): void {
     this.statisticsService.setChannelPostIndeces(this.activeChannelIdx, postIdx);
     this.renderStatisticsPiechart(postIdx);
   }
 
-  renderStatisticsPiechart(postIdx: number) {
+  renderStatisticsPiechart(postIdx: number): void {
     this.statisticsService.setChannelPostIndeces(this.activeChannelIdx, postIdx);
   }
 
-  fillPostTitleArray(indx: number) {
+  fillPostTitleArray(indx: number): void {
     this.activeChannelIdx = indx;
 
     this.channelsService.getChannelDataById(indx).subscribe(channelData => {
