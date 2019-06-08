@@ -2,10 +2,6 @@ $tags-vertical-padding: 2px;
 $content-width: 100%;
 $animation-duration: 0.3s;
 
-:host {
-    z-index: 1;
-}
-
 .post-content {
     position: absolute;
     top: 0;
