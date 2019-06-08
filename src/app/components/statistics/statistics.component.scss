@@ -6,48 +6,48 @@ $statistics-content-width: 100%;
     background-color: rgb(192, 192, 192);
     user-select: none;
     overflow: hidden;
+}
 
-    &__title {
-        width: $statistics-content-width;
-        text-align: center;
-        font-size: 1.5em;
-    }
-    
-    &__amounts-container {
-        height: 50%;
-        width: $statistics-content-width;
-        border-top: 2px solid rgb(231, 231, 231);
-        border-bottom: 2px solid rgb(231, 231, 231);
-        font-size: 1.2rem;
-        padding: 0 3px;
-    }
-    
-    &__amounts{
-        height: 33.33%;
-    }
-    
-    &__pie-container {
-        width: $statistics-content-width;
-        height: 50%;
-        padding: 0 3px; 
-    }
-    
-    &__pie-chart {
-        position: relative; 
-        width: 180%;
-        right: 41%;
-        top: 10%;
-    }
-    
-    &__hint {
-        font-size: 0.8rem;
-        color: rgb(114, 114, 114);
-        font-weight: 900;
-        line-height: 0.4rem;
-    }
-    
-    &__hint--lower {
-        position: relative;
-        top: 30%;
-    }
+.statistics__title {
+    width: $statistics-content-width;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.statistics__amounts-container {
+    height: 50%;
+    width: $statistics-content-width;
+    border-top: 2px solid rgb(231, 231, 231);
+    border-bottom: 2px solid rgb(231, 231, 231);
+    font-size: 1.2rem;
+    padding: 0 3px;
+}
+
+.statistics__amounts{
+    height: 33.33%;
+}
+
+.statistics__pie-container {
+    width: $statistics-content-width;
+    height: 50%;
+    padding: 0 3px; 
+}
+
+.statistics__pie-chart {
+    position: relative; 
+    width: 180%;
+    right: 41%;
+    top: 10%;
+}
+
+.statistics__hint {
+    font-size: 0.8rem;
+    color: rgb(114, 114, 114);
+    font-weight: 900;
+    line-height: 0.4rem;
+}
+
+.statistics__hint--lower {
+    position: relative;
+    top: 30%;
 }

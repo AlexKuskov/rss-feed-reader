@@ -14,122 +14,122 @@ $animation-duration: 0.3s;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
+}
 
-    &__initial-text {
-        display: flex;
-        justify-content:center;
-        align-content:center;
-        flex-direction: column;
+.post-content__initial-text {
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction: column;
     
-        font-size: 1.4rem;
-        text-align: center;
-        color: rgb(114, 114, 114);
-        width: $content-width;
-        height: 100%;
-        user-select: none;
-    
-        -webkit-transition: width $animation-duration;
-        transition: width $animation-duration;
-    }
-    
-    &__data-container {
-        position: absolute;
-        right: 0;
-        width: $content-width;
-        -webkit-transition: width $animation-duration;
-        transition: width $animation-duration;
-    }
-    
-    &__data-container--shrinked {
-        width: 73%;
-    }
-    
-    &__title {
-        font-size: 1.5rem;
-        width: $content-width;
-        text-align: center;
-        margin-bottom: 5%;
+    font-size: 1.4rem;
+    text-align: center;
+    color: rgb(114, 114, 114);
+    width: $content-width;
+    height: 100%;
+    user-select: none;
+
+    -webkit-transition: width $animation-duration;
+    transition: width $animation-duration;
+}
+
+.post-content__data-container {
+    position: absolute;
+    right: 0;
+    width: $content-width;
+    -webkit-transition: width $animation-duration;
+    transition: width $animation-duration;
+}
+
+.post-content__data-container--shrinked {
+    width: 73%;
+}
+
+.post-content__title {
+    font-size: 1.5rem;
+    width: $content-width;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.post-content__author-pubdate-section {
+    width: $content-width;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.post-content__author {
+    display: inline-block;
+    width: 50%;
+}
+
+.post-content__pub-date {
+    float: right;
+}
+
+.post-content__main-content {
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    // it's necessary to use tags here, because provided Html data from server 
+    // provides tags without classes
+    img {
+        display: block;
+        max-width: 90%;
+        margin: 0 auto;
+        margin-bottom: 2%;
     }
 
-    &__author-pubdate-section {
-        width: $content-width;
-        font-weight: bold;
-        margin-bottom: 30px;
-        padding: 0 10px;
-        box-sizing: border-box;
+    p {
+        margin-bottom: 3%;
     }
+}
 
-    &__author {
-        display: inline-block;
-        width: 50%;
-    }
+.post-content__button-container {
+    width: $content-width;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
 
-    &__pub-date {
-        float: right;
-    }
+.post-content__visit-website-btn {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 200px;
+    height: 40px;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 40px;
+    background-color: rgb(221, 221, 221);
+}
 
-    &__main-content {
-        padding: 0 10px;
-        box-sizing: border-box;
+.post-content__categories-section {
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
 
-        // it's necessary to use tags here, because provided Html data from server 
-        // provides tags without classes
-        img {
-            display: block;
-            max-width: 90%;
-            margin: 0 auto;
-            margin-bottom: 2%;
-        }
-    
-        p {
-            margin-bottom: 3%;
-        }
-    }
+.post-content__tags-text {
+    float: left;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: $tags-vertical-padding 0;
+    margin-left: 5px;
+}
 
-    &__button-container {
-        width: $content-width;
-        text-align: center;
-        margin-bottom: 30px;
-        margin-top: 15px;
-    }
+.post-content__category-container {
+    float: left;
+}
 
-    &__visit-website-btn {
-        display: inline-block;
-        border: 1px solid black;
-        border-radius: 50px;
-        width: 200px;
-        height: 40px;
-        text-decoration: none;
-        color: black;
-        font-size: 1.2rem;
-        text-align: center;
-        line-height: 40px;
-        background-color: rgb(221, 221, 221);
-    }
-
-    &__categories-section {
-        padding: 0 10px;
-        margin-bottom: 10px;
-    }
-
-    &__tags-text {
-        float: left;
-        font-weight: bold;
-        font-size: 0.8rem;
-        padding: $tags-vertical-padding 0;
-        margin-left: 5px;
-    }
-
-    &__category-container {
-        float: left;
-    }
-    
-    &__category {
-        font-size: 0.7rem;
-        border: 1px solid black;
-        border-radius: 50px;
-        margin: 0 5px;
-        padding: $tags-vertical-padding 8px;
-        line-height: 2.2em;
-    }
+.post-content__category {
+    font-size: 0.7rem;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin: 0 5px;
+    padding: $tags-vertical-padding 8px;
+    line-height: 2.2em;
 }
