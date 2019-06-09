@@ -17,15 +17,17 @@
     </section>
     
     <section class="statistics__pie-container">
-        <span *ngIf="isPieChartLabelsDefined()" class="statistics__hint statistics__hint--lower">
+        <span *ngIf="isPieChartLabelsDefined(); else pieChart" class="statistics__hint statistics__hint--lower">
             Please click on a post to see the frequency of the letters in the post</span>
-        <div *ngIf="!isPieChartLabelsDefined()" class="statistics__pie-chart">
-            <canvas baseChart
-            [data]="pieChartData"
-            [labels]="pieChartLabels"
-            [chartType]="pieChartType"
-            [options]="pieChartOptions"></canvas>
-        </div>
+        <ng-template #pieChart>
+            <div class="statistics__pie-chart">
+                <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                [options]="pieChartOptions"></canvas>
+            </div>
+        </ng-template>
     </section>
     
 </aside>

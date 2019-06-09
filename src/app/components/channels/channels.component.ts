@@ -25,15 +25,15 @@ export class ChannelsComponent implements OnInit {
   }
 
   showPostPanel(i: number): void {
-    if (i !== this.previousIndex) {
+    if (i === this.previousIndex) {
+      this.channelPostContentService.switchPanelToggle();
+    } else {
       if (!this.postContentState) {
         this.channelPostContentService.switchPanelToggle();
       }
 
       this.renderPostPanelAndStatisticsData(i);
       this.previousIndex = i;
-    } else {
-      this.channelPostContentService.switchPanelToggle();
     }
   }
 
