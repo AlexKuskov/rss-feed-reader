@@ -27,9 +27,11 @@ $animation-duration: 0.3s;
     color: rgb(114, 114, 114);
     width: $content-width;
     height: 100%;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 
-    -webkit-transition: width $animation-duration;
     transition: width $animation-duration;
 }
 
@@ -37,7 +39,6 @@ $animation-duration: 0.3s;
     position: absolute;
     right: 0;
     width: $content-width;
-    -webkit-transition: width $animation-duration;
     transition: width $animation-duration;
 }
 
@@ -73,7 +74,7 @@ $animation-duration: 0.3s;
     padding: 0 10px;
     box-sizing: border-box;
 
-    // it's necessary to use tags here, because provided Html data from server 
+    // it is necessary to use tags here, because provided Html data from server 
     // provides tags without classes
     img {
         display: block;
