@@ -1,5 +1,5 @@
-<div class="channels">
-  <div class="channels__item" *ngFor="let title of channelTitles; let i = index;" (click)="showPostPanel(i)">
+<ul class="channels">
+  <li class="channels__item" *ngFor="let title of channelTitles; let i = index;" (click)="showPostPanel(i)">
     <img class="channels__item-icon" src="assets/images/rss-symbol.svg"> {{ title }}
-  </div>
-</div>
+  </li>
+</ul>

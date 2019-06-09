@@ -14,7 +14,8 @@ $statistics-content-width: 100%;
 .statistics__title {
     width: $statistics-content-width;
     text-align: center;
-    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0;
 }
 
 .statistics__amounts-container {
