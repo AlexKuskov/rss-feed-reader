@@ -1,6 +1,6 @@
 <aside class="statistics">
     <h2 class="statistics__title">Website Statistics</h2>
-    <div class="statistics__amounts-container">
+    <section class="statistics__amounts-container">
         <div class="statistics__amounts">Channels: <br> {{ channelsNumber }}</div>
         <div class="statistics__amounts">
             Channel Posts: <br> 
@@ -14,9 +14,9 @@
             <span *ngIf="isChannelAuthorsNumberDefined()" class="statistics__hint">
                 Please click on a channel to see the number of post authors </span>
         </div>
-    </div>
+    </section>
     
-    <div class="statistics__pie-container">
+    <section class="statistics__pie-container">
         <span *ngIf="isPieChartLabelsDefined()" class="statistics__hint statistics__hint--lower">
             Please click on a post to see the frequency of the letters in the post</span>
         <div *ngIf="!isPieChartLabelsDefined()" class="statistics__pie-chart">
@@ -26,6 +26,6 @@
             [chartType]="pieChartType"
             [options]="pieChartOptions"></canvas>
         </div>
-    </div>
+    </section>
     
 </aside>
