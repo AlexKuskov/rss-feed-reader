@@ -33,17 +33,17 @@ export class PostContentComponent implements OnInit {
 
   fillPostData(channelIdx: number, postIdx: number): void {
     this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      
+      const postContentItems: ChannelPostData = channelData.items[postIdx];
       let secureContent: SafeHtml = 
-          this.domSanitizer.bypassSecurityTrustHtml(channelData.items[postIdx].content.toString());
+          this.domSanitizer.bypassSecurityTrustHtml(postContentItems.content.toString());
      
       this.channelPostData = [{
-        title: channelData.items[postIdx].title,
+        title: postContentItems.title,
         content: secureContent,
-        categories: channelData.items[postIdx].categories,
-        pubDate: channelData.items[postIdx].pubDate,
-        link: channelData.items[postIdx].link,
-        author: channelData.items[postIdx].author
+        categories: postContentItems.categories,
+        pubDate: postContentItems.pubDate,
+        link: postContentItems.link,
+        author: postContentItems.author
       }];
     });
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChannelsService } from 'src/app/services/channels.service';
 import { ChannelData } from 'src/app/models/ChannelData';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { ChannelPostData } from 'src/app/models/ChannelPostData';
 
 @Component({
   selector: 'app-statistics',
@@ -84,10 +85,12 @@ export class StatisticsComponent implements OnInit {
   }
 
   getAllPostContentCharacters(channelData: ChannelData, i: number): string {
-    return channelData.items[i].title.concat(
-      channelData.items[i].content.toString(),
-      channelData.items[i].categories.toString(),
-      channelData.items[i].author
+    const postContentItems: ChannelPostData = channelData.items[i];
+
+    return postContentItems.title.concat(
+      postContentItems.content.toString(),
+      postContentItems.categories.toString(),
+      postContentItems.author
     );
   }
 
