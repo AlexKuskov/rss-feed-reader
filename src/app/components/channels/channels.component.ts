@@ -10,7 +10,7 @@ import { ChannelPostContentService } from 'src/app/services/channel-post-content
 })
 export class ChannelsComponent implements OnInit {
   channelTitles: string[] = [];
-  prevIdx: number;
+  previousIndex: number;
   postContentState: boolean;
 
   constructor(private channelsService: ChannelsService,
@@ -25,13 +25,13 @@ export class ChannelsComponent implements OnInit {
   }
 
   showPostPanel(i: number): void {
-    if (i !== this.prevIdx) {
+    if (i !== this.previousIndex) {
       if (!this.postContentState) {
         this.channelPostContentService.switchPanelToggle();
       }
 
       this.renderPostPanelAndStatisticsData(i);
-      this.prevIdx = i;
+      this.previousIndex = i;
     } else {
       this.channelPostContentService.switchPanelToggle();
     }

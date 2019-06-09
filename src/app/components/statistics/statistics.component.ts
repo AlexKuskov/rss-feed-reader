@@ -29,12 +29,12 @@ export class StatisticsComponent implements OnInit {
   ngOnInit() {
     this.getChannelsNumber();
 
-    this.statisticsService.getChannelIndex().subscribe(channelIdx => {
-      this.getChannelPostsNumber(channelIdx);
-      this.getChannelAuthorsNumber(channelIdx);
+    this.statisticsService.getChannelIndex().subscribe(channelIndex => {
+      this.getChannelPostsNumber(channelIndex);
+      this.getChannelAuthorsNumber(channelIndex);
     });
-    this.statisticsService.getChannelPostIndeces().subscribe(indeces => {
-      this.getPieChartData(indeces[0], indeces[1]);
+    this.statisticsService.getChannelPostIndices().subscribe(indices => {
+      this.getPieChartData(indices[0], indices[1]);
     });
   }
 
@@ -42,14 +42,14 @@ export class StatisticsComponent implements OnInit {
     this.channelsNumber = this.channelsService.channels.length;
   }
 
-  getChannelPostsNumber(channelIdx: number): void {
-    this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
+  getChannelPostsNumber(channelIndex: number): void {
+    this.channelsService.getChannelDataById(channelIndex).subscribe(channelData => {
       this.channelPostsNumber = channelData.items.length;
     });
   }
 
-  getChannelAuthorsNumber(channelIdx: number): void {
-    this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
+  getChannelAuthorsNumber(channelIndex: number): void {
+    this.channelsService.getChannelDataById(channelIndex).subscribe(channelData => {
       let authors: string[] = [];
 
       for (let item of channelData.items) {
@@ -65,11 +65,11 @@ export class StatisticsComponent implements OnInit {
     });
   }
 
-  getPieChartData(channelIdx: number, postIdx: number): void {
-    this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
+  getPieChartData(channelIndex: number, postIndex: number): void {
+    this.channelsService.getChannelDataById(channelIndex).subscribe(channelData => {
       let letters: Object = {};
       
-      let content: string = this.getAllPostContentCharacters(channelData, postIdx);                     
+      let content: string = this.getAllPostContentCharacters(channelData, postIndex);                     
       let contentLetters: string[] = this.getLetters(content);
       contentLetters.sort();
 

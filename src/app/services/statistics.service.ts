@@ -6,24 +6,24 @@ import { Subject, Observable } from 'rxjs';
 })
 export class StatisticsService {
 
-  private channelIdxTransmitter$: Subject<number> = new Subject<number>();
-  private twoIdxTransmitter$: Subject<Array<number>> = new Subject<Array<number>>();
+  private channelIndexTransmitter$: Subject<number> = new Subject<number>();
+  private twoIndicesTransmitter$: Subject<Array<number>> = new Subject<Array<number>>();
 
   constructor() { }
 
-  setChannelIndex(channelIdx: number): void {
-    this.channelIdxTransmitter$.next(channelIdx);
+  setChannelIndex(channelIndex: number): void {
+    this.channelIndexTransmitter$.next(channelIndex);
   }
 
   getChannelIndex(): Observable<number> {
-    return this.channelIdxTransmitter$.asObservable();
+    return this.channelIndexTransmitter$.asObservable();
   }
 
-  setChannelPostIndeces(channelIdx: number, postIdx: number): void {
-    this.twoIdxTransmitter$.next([channelIdx, postIdx]);
+  setChannelPostIndices(channelIndex: number, postIdx: number): void {
+    this.twoIndicesTransmitter$.next([channelIndex, postIdx]);
   }
 
-  getChannelPostIndeces(): Observable<Array<number>> {
-    return this.twoIdxTransmitter$.asObservable();
+  getChannelPostIndices(): Observable<Array<number>> {
+    return this.twoIndicesTransmitter$.asObservable();
   }
 }

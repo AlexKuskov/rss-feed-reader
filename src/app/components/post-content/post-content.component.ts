@@ -25,15 +25,15 @@ export class PostContentComponent implements OnInit {
     this.channelPostContentService.getPostContentState().subscribe(postContentState => {
       this.postContentState = postContentState;
     });
-    this.statisticsService.getChannelPostIndeces().subscribe(indeces => {
+    this.statisticsService.getChannelPostIndices().subscribe(indices => {
       this.clearPostData();
-      this.fillPostData(indeces[0], indeces[1]);
+      this.fillPostData(indices[0], indices[1]);
     });
   }
 
-  fillPostData(channelIdx: number, postIdx: number): void {
-    this.channelsService.getChannelDataById(channelIdx).subscribe(channelData => {
-      const postContentItems: ChannelPostData = channelData.items[postIdx];
+  fillPostData(channelIndex: number, postIndex: number): void {
+    this.channelsService.getChannelDataById(channelIndex).subscribe(channelData => {
+      const postContentItems: ChannelPostData = channelData.items[postIndex];
       let secureContent: SafeHtml = 
           this.domSanitizer.bypassSecurityTrustHtml(postContentItems.content.toString());
      
