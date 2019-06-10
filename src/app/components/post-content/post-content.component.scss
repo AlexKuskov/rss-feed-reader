@@ -27,10 +27,7 @@ $animation-duration: 0.3s;
     color: rgb(114, 114, 114);
     width: $content-width;
     height: 100%;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    user-select: none;
 
     transition: width $animation-duration;
 }
