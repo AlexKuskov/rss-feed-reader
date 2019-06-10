@@ -4,6 +4,8 @@ import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ChannelData } from '../models/ChannelData';
 import { Utils } from '../shared/utils';
+import { StatisticsService } from './statistics.service';
+import { ChannelPostContentService } from './channel-post-content.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +25,44 @@ export class ChannelsService {
   ]
 
   xmlToJsonConverter: string = "https://rss2json.com/api.json?rss_url=";
+  previousIndex: number;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private statisticsService: StatisticsService,
+              private channelPostContentService: ChannelPostContentService) { }
 
   getChannelDataById(i: number): Observable<ChannelData> {
     return this.http.get<ChannelData>(this.xmlToJsonConverter + this.channels[i])
     .pipe(
       catchError(Utils.errorHandler)
     );
+  }
+
+  getChannelTitles(): string[] {
+    let channelTitles: string[] = [];
+
+    for (let i = 0; i < this.channels.length; i++) {
+      this.getChannelDataById(i).subscribe(channelData => {
+        channelTitles[i] = channelData.feed.title;
+       });
+    }
+
+    return channelTitles;
+  }
+
+  renderPostPanelAndStatisticsData(i: number): void {
+    this.statisticsService.setChannelIndex(i);
+    this.previousIndex = i;
+  }
+
+  showPostPanel(i: number, postContentState: boolean): void {
+    if (i === this.previousIndex) {
+      this.channelPostContentService.switchPanelToggle();
+    } else {
+      if (!postContentState) {
+        this.channelPostContentService.switchPanelToggle();
+      }
+
+      this.renderPostPanelAndStatisticsData(i);
+    }
   }
 }

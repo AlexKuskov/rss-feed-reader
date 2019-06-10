@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ChannelsService } from '../../services/channels.service';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
 
 @Component({
@@ -10,42 +9,19 @@ import { ChannelPostContentService } from 'src/app/services/channel-post-content
 })
 export class ChannelsComponent implements OnInit {
   channelTitles: string[] = [];
-  previousIndex: number;
   postContentState: boolean;
 
   constructor(private channelsService: ChannelsService,
-    private statisticsService: StatisticsService,
     private channelPostContentService: ChannelPostContentService) { }
 
   ngOnInit() {
-    this.fillChannelTitles();
+    this.channelTitles = this.channelsService.getChannelTitles();
     this.channelPostContentService.getPostContentState().subscribe(postContentState => {
       this.postContentState = postContentState;
     });
   }
 
-  showPostPanel(i: number): void {
-    if (i === this.previousIndex) {
-      this.channelPostContentService.switchPanelToggle();
-    } else {
-      if (!this.postContentState) {
-        this.channelPostContentService.switchPanelToggle();
-      }
-
-      this.renderPostPanelAndStatisticsData(i);
-      this.previousIndex = i;
-    }
-  }
-
-  renderPostPanelAndStatisticsData(i: number): void {
-    this.statisticsService.setChannelIndex(i);
-  }
-
-  fillChannelTitles(): void {
-    for (let i = 0; i < this.channelsService.channels.length; i++) {
-      this.channelsService.getChannelDataById(i).subscribe(channelData => {
-        this.channelTitles[i] = channelData.feed.title;
-       });
-    }
+  sendChannelIndex(i: number): void {
+    this.channelsService.showPostPanel(i, this.postContentState);
   }
 }

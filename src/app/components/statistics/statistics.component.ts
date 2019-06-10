@@ -50,59 +50,15 @@ export class StatisticsComponent implements OnInit {
 
   getChannelAuthorsNumber(channelIndex: number): void {
     this.channelsService.getChannelDataById(channelIndex).subscribe(channelData => {
-      let authors: string[] = [];
-
-      for (let item of channelData.items) {
-        let author: string = item.author;
-        if (author === "") continue;
-
-        if (!~authors.indexOf(author)) {
-          authors.push(author);
-        }
-      }
-
-      this.channelAuthorsNumber = authors.length;
+      this.channelAuthorsNumber = this.statisticsService.countAuthorNumber(channelData);
     });
   }
 
   getPieChartData(channelIndex: number, postIndex: number): void {
     this.channelsService.getChannelDataById(channelIndex).subscribe(channelData => {
-      let letters: Object = {};
-      
-      let content: string = this.getAllPostContentCharacters(channelData, postIndex);                     
-      let contentLetters: string[] = this.getLetters(content);
-      contentLetters.sort();
-
-      letters = this.getEachLetterNumber(contentLetters);
+      let letters: Object = this.statisticsService.getPreparedPieChartData(channelData, postIndex);
       this.setPieChartProperties(letters);
     });
-  }
-
-  getLetters(content: string): string[] {
-    content = content.toLowerCase();
-
-    return content.split('').filter(i => 'a' <= i && i <= 'z');
-  }
-
-  getAllPostContentCharacters(channelData: ChannelData, i: number): string {
-    const postContentItems: ChannelPostData = channelData.items[i];
-
-    return postContentItems.title.concat(
-      postContentItems.content.toString(),
-      postContentItems.categories.toString(),
-      postContentItems.author
-    );
-  }
-
-  getEachLetterNumber(contentLetters: string[]): Object {
-    let letters: Object = {};
-
-    for (let i = 0; i < contentLetters.length; i++) {
-      let num = contentLetters[i];
-      letters[num] = letters[num] ? letters[num] + 1 : 1;
-    }
-
-    return letters;
   }
 
   setPieChartProperties(letters: Object): void {

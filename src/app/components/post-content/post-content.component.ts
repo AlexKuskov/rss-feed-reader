@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ChannelsService } from '../../services/channels.service';
 import { ChannelPostData } from '../../models/ChannelPostData';
 import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { PostContentService } from 'src/app/services/post-content.service';
 
 @Component({
   selector: 'app-post-content',
@@ -17,39 +17,20 @@ export class PostContentComponent implements OnInit {
   postContentState: boolean = false;
 
   constructor(private channelsService: ChannelsService, 
-    private domSanitizer: DomSanitizer,
     private channelPostContentService: ChannelPostContentService,
-    private statisticsService: StatisticsService) { }
+    private statisticsService: StatisticsService,
+    private postContentService: PostContentService) { }
 
   ngOnInit() {
     this.channelPostContentService.getPostContentState().subscribe(postContentState => {
       this.postContentState = postContentState;
     });
+
     this.statisticsService.getChannelPostIndices().subscribe(indices => {
-      this.clearPostData();
-      this.fillPostData(indices[0], indices[1]);
+      this.channelsService.getChannelDataById(indices[0]).subscribe(channelData => {
+        this.channelPostData = this.postContentService.getPostData(indices[1], channelData);
+      });
     });
-  }
-
-  fillPostData(channelIndex: number, postIndex: number): void {
-    this.channelsService.getChannelDataById(channelIndex).subscribe(channelData => {
-      const postContentItems: ChannelPostData = channelData.items[postIndex];
-      let secureContent: SafeHtml = 
-          this.domSanitizer.bypassSecurityTrustHtml(postContentItems.content.toString());
-     
-      this.channelPostData = [{
-        title: postContentItems.title,
-        content: secureContent,
-        categories: postContentItems.categories,
-        pubDate: postContentItems.pubDate,
-        link: postContentItems.link,
-        author: postContentItems.author
-      }];
-    });
-  }
-
-  clearPostData(): void {
-    this.channelPostData = [];
   }
 
   isChannelPostDataDefined(): boolean {
