@@ -32,15 +32,14 @@ export class StatisticsService {
   countAuthorNumber(channelData: ChannelData): number {
     let authors: string[] = [];
 
-    for (let item of channelData.items) {
-      let author: string = item.author;
-      if (author === "") continue;
+    channelData.items.forEach(item => {
+      const author: string = item.author;
 
-      if (!~authors.indexOf(author)) {
+      if (author !== "" && !~authors.indexOf(author)) {
         authors.push(author);
       }
-    }
-
+    });
+    
     return authors.length;
   }
 
@@ -71,10 +70,9 @@ export class StatisticsService {
   getEachLetterNumber(contentLetters: string[]): Object {
     let letters: Object = {};
 
-    for (let i = 0; i < contentLetters.length; i++) {
-      let num = contentLetters[i];
-      letters[num] = letters[num] ? letters[num] + 1 : 1;
-    }
+    contentLetters.forEach(letterKey => {
+      letters[letterKey] = letters[letterKey] ? letters[letterKey] + 1 : 1;
+    });
 
     return letters;
   }

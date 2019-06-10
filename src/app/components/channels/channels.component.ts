@@ -22,6 +22,6 @@ export class ChannelsComponent implements OnInit {
   }
 
   sendChannelIndex(i: number): void {
-    this.channelsService.showPostPanel(i, this.postContentState);
+    this.channelsService.showHidePostPanel(i, this.postContentState);
   }
 }

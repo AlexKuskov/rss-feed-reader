@@ -40,29 +40,31 @@ export class ChannelsService {
   getChannelTitles(): string[] {
     let channelTitles: string[] = [];
 
+    // Cannot be reduced to .forEach method because 'channelData' variable provides
+    // titles, not 'this.channels' array
     for (let i = 0; i < this.channels.length; i++) {
       this.getChannelDataById(i).subscribe(channelData => {
         channelTitles[i] = channelData.feed.title;
-       });
+      });
     }
 
     return channelTitles;
   }
 
-  renderPostPanelAndStatisticsData(i: number): void {
+  renderPostPanelAndStatisticsData(i: number, postContentState: boolean): void {
+    if (!postContentState) {
+      this.channelPostContentService.switchPanelToggle();
+    }
+
     this.statisticsService.setChannelIndex(i);
     this.previousIndex = i;
   }
 
-  showPostPanel(i: number, postContentState: boolean): void {
+  showHidePostPanel(i: number, postContentState: boolean): void {
     if (i === this.previousIndex) {
       this.channelPostContentService.switchPanelToggle();
     } else {
-      if (!postContentState) {
-        this.channelPostContentService.switchPanelToggle();
-      }
-
-      this.renderPostPanelAndStatisticsData(i);
+      this.renderPostPanelAndStatisticsData(i, postContentState);
     }
   }
 }
