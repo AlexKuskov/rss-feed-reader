@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { ChannelData } from '../models/ChannelData';
 import { ChannelPostData } from '../models/ChannelPostData';
+import { Indices } from '../models/Indices';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { ChannelPostData } from '../models/ChannelPostData';
 export class StatisticsService {
 
   private channelIndexTransmitter$: Subject<number> = new Subject<number>();
-  private twoIndicesTransmitter$: Subject<Array<number>> = new Subject<Array<number>>();
+  private twoIndicesTransmitter$: Subject<Indices> = new Subject<Indices>();
 
   constructor() { }
 
@@ -21,11 +22,11 @@ export class StatisticsService {
     return this.channelIndexTransmitter$.asObservable();
   }
 
-  setChannelPostIndices(channelIndex: number, postIdx: number): void {
-    this.twoIndicesTransmitter$.next([channelIndex, postIdx]);
+  setChannelPostIndices(channelIndex: number, postIndex: number): void {
+    this.twoIndicesTransmitter$.next({channelIndex, postIndex});
   }
 
-  getChannelPostIndices(): Observable<Array<number>> {
+  getChannelPostIndices(): Observable<Indices> {
     return this.twoIndicesTransmitter$.asObservable();
   }
 

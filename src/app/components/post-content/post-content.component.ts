@@ -27,8 +27,8 @@ export class PostContentComponent implements OnInit {
     });
 
     this.statisticsService.getChannelPostIndices().subscribe(indices => {
-      this.channelsService.getChannelDataById(indices[0]).subscribe(channelData => {
-        this.channelPostData = this.postContentService.getPostData(indices[1], channelData);
+      this.channelsService.getChannelDataById(indices.channelIndex).subscribe(channelData => {
+        this.channelPostData = this.postContentService.getPostData(indices.postIndex, channelData);
       });
     });
   }

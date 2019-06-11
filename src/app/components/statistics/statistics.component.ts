@@ -34,7 +34,7 @@ export class StatisticsComponent implements OnInit {
       this.getChannelAuthorsNumber(channelIndex);
     });
     this.statisticsService.getChannelPostIndices().subscribe(indices => {
-      this.getPieChartData(indices[0], indices[1]);
+      this.getPieChartData(indices.channelIndex, indices.postIndex);
     });
   }
 
