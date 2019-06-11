@@ -1,6 +1,6 @@
 <ul class="channel-posts" [ngClass]="{ 'channel-posts--opened-panel': panelState }">
-    <li class="channel-posts__post" *ngFor="let channelPost of channelPostTitles; let even = even; let idx = index;"
-         [ngClass]="{ 'channel-posts__post--even': even }" (click)="renderPostContent(idx)">
+    <li class="channel-posts__post" *ngFor="let channelPost of channelPostTitles; let idx = index;"
+        (click)="renderPostContent(idx)">
         {{ channelPost }}
     </li>
 </ul>

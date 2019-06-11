@@ -45,8 +45,7 @@ export class StatisticsService {
 
   getPreparedPieChartData(channelData: ChannelData, postIndex: number): Object {
     let content: string = this.getAllPostContentCharacters(channelData, postIndex);                     
-    let contentLetters: string[] = this.getLetters(content);
-    contentLetters.sort();
+    let contentLetters: string[] = this.getLetters(content).sort();
 
     return this.getEachLetterNumber(contentLetters);
   }

@@ -19,6 +19,7 @@
 }
 
 .channel-posts__post {
+    $odd_posts: '&:nth-child(odd)';
     display: flex;
     align-items: center;
     font-size: 0.8em;
@@ -31,16 +32,16 @@
     padding: 0 5px;
     cursor: pointer;
 
-    &:active {
+    &:active, #{$odd_posts}:active {
         border: 1px solid rgb(45, 45, 45);
     }
     
-    &:hover {
+    &:hover, #{$odd_posts}:hover {
         background-color: #e7e7e7;
     }
-}
 
-.channel-posts__post--even {
-    background-color: rgb(168, 168, 168);
+    #{$odd_posts} {
+        background-color: rgb(168, 168, 168);
+    }
 }
 
