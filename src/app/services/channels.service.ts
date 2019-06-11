@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
 import { ChannelData } from '../models/ChannelData';
 import { errorHandler } from '../shared/utils';
 import { StatisticsService } from './statistics.service';
@@ -37,18 +37,40 @@ export class ChannelsService {
     );
   }
 
-  getChannelTitles(): string[] {
+  getChannelTitles(): Observable<Array<string>> {   
+    let channelTitles$ = new Observable<Array<string>>(observer => {
+      let channelTitles: string[];
+      let channelObservables: Array<Observable<ChannelData>> = this.getAllChannelObservables();
+
+      forkJoin(channelObservables)
+        .subscribe(allChannelData => {
+          channelTitles = this.getAllChannelTitles(allChannelData);
+          
+          observer.next(channelTitles);
+        });
+    });  
+
+    return channelTitles$;
+  }
+
+  getAllChannelTitles(allChannelData: ChannelData[]): Array<string> {
     let channelTitles: string[] = [];
 
-    // Cannot be reduced to .forEach method because 'channelData' variable provides
-    // titles, not 'this.channels' array
-    for (let i = 0; i < this.channels.length; i++) {
-      this.getChannelDataById(i).subscribe(channelData => {
-        channelTitles[i] = channelData.feed.title;
-      });
-    }
+    allChannelData.forEach(channelData => {
+      channelTitles.push(channelData.feed.title);
+    });
 
     return channelTitles;
+  }
+
+  getAllChannelObservables(): Array<Observable<ChannelData>> {
+    let channelObservables: Array<Observable<ChannelData>> = [];
+
+    for (let i = 0; i < this.channels.length; i++) {
+      channelObservables.push(this.getChannelDataById(i));
+    }
+
+    return channelObservables;
   }
 
   renderPostPanelAndStatisticsData(i: number, postContentState: boolean): void {
