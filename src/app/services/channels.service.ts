@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ChannelData } from '../models/ChannelData';
-import { Utils } from '../shared/utils';
+import { errorHandler } from '../shared/utils';
 import { StatisticsService } from './statistics.service';
 import { ChannelPostContentService } from './channel-post-content.service';
 
@@ -33,7 +33,7 @@ export class ChannelsService {
   getChannelDataById(i: number): Observable<ChannelData> {
     return this.http.get<ChannelData>(this.xmlToJsonConverter + this.channels[i])
     .pipe(
-      catchError(Utils.errorHandler)
+      catchError(errorHandler)
     );
   }
 

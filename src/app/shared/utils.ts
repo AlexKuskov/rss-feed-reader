@@ -1,12 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class Utils {
-  static errorHandler(error: HttpErrorResponse): Observable<never> {
-    return Observable.throw(error.message || "Server Error");
-  }
+export function errorHandler(error: HttpErrorResponse): Observable<never> {
+  return Observable.throw(error.message || "Server Error");
 }
+
