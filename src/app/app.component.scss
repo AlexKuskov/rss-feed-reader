@@ -1,18 +1,22 @@
 .component-container {
     display: flex;
 }
-.app-channels {
+
+.component-container__app-channels {
     width: 15%;
     z-index: 3;
 }
-.app-channel-posts {
+
+.component-container__app-channel-posts {
     width: 18%;
     z-index: 2;
 }
-.app-post-content {
+
+.component-container__app-post-content {
     width: 50%;
     z-index: 1;
 }
-.app-statistics {
+
+.component-container__app-statistics {
     width: 17%;
 }
