@@ -3,6 +3,7 @@ import { Subject, Observable } from 'rxjs';
 import { ChannelData } from '../models/ChannelData';
 import { ChannelPostData } from '../models/ChannelPostData';
 import { Indices } from '../models/Indices';
+import { distinct } from '../shared/utils';
 
 @Injectable({
   providedIn: 'root'
@@ -31,17 +32,11 @@ export class StatisticsService {
   }
 
   countAuthorNumber(channelData: ChannelData): number {
-    let authors: string[] = [];
-
-    channelData.items.forEach(item => {
-      const author: string = item.author;
-
-      if (author !== "" && !~authors.indexOf(author)) {
-        authors.push(author);
-      }
-    });
-    
-    return authors.length;
+    return channelData.items
+        .map(item => item.author)
+        .filter(author => !!author)
+        .filter(distinct)
+        .length;
   }
 
   getPreparedPieChartData(channelData: ChannelData, postIndex: number): Object {

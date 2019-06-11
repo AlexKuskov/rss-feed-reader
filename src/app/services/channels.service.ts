@@ -56,9 +56,7 @@ export class ChannelsService {
   getAllChannelTitles(allChannelData: ChannelData[]): Array<string> {
     let channelTitles: string[] = [];
 
-    allChannelData.forEach(channelData => {
-      channelTitles.push(channelData.feed.title);
-    });
+    allChannelData.forEach(channelData => channelTitles.push(channelData.feed.title));
 
     return channelTitles;
   }
