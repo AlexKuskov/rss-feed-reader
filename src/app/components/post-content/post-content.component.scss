@@ -14,6 +14,11 @@ $animation-duration: 0.3s;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
+    transition: width $animation-duration;
+}
+
+.post-content--shrinked {
+    width: 50%;
 }
 
 .post-content__initial-text {
@@ -36,11 +41,6 @@ $animation-duration: 0.3s;
     position: absolute;
     right: 0;
     width: $content-width;
-    transition: width $animation-duration;
-}
-
-.post-content__data-container--shrinked {
-    width: 73%;
 }
 
 .post-content__title {

@@ -3,19 +3,19 @@
     margin: 0;
     padding: 0;
     position: relative;
-    right: 100%;
     height: 100vh;
-    width: 100%;
+    width: 0;
     background-color: rgb(216, 216, 216);
     box-sizing: border-box;
-    border: 2px solid rgb(45, 45, 45);
     user-select: none;
-    transition: right 0.3s;
+    transition: width 0.3s;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .channel-posts--opened-panel {
-    right: 0;
+    width: 100%;
+    border: 2px solid rgb(45, 45, 45);
 }
 
 .channel-posts__post {
@@ -27,9 +27,10 @@
     position: relative;
     border: 1px solid rgb(204, 204, 204);
     background-color: rgb(204, 204, 204);
-    width: 100%;
+    width: 18vw;
     height: 10%;
     padding: 0 5px;
+    overflow: hidden;
     cursor: pointer;
 
     &:active, #{$odd_posts}:active {
