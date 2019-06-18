@@ -19,7 +19,7 @@ export class StatisticsService {
     this.channelIndexTransmitter$.next(channelIndex);
   }
 
-  getChannelIndex(): Observable<number> {
+  get channelIndex$(): Observable<number> {
     return this.channelIndexTransmitter$.asObservable();
   }
 
@@ -27,7 +27,7 @@ export class StatisticsService {
     this.twoIndicesTransmitter$.next({channelIndex, postIndex});
   }
 
-  getChannelPostIndices(): Observable<Indices> {
+  get channelPostIndices$(): Observable<Indices> {
     return this.twoIndicesTransmitter$.asObservable();
   }
 

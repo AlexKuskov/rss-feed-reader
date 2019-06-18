@@ -26,7 +26,7 @@ export class PostContentComponent implements OnInit {
       this.postContentState = postContentState;
     });
 
-    this.statisticsService.getChannelPostIndices().subscribe(indices => {
+    this.statisticsService.channelPostIndices$.subscribe(indices => {
       this.channelsService.getChannelDataById(indices.channelIndex).subscribe(channelData => {
         this.channelPostData = [];
         this.channelPostData.push(this.postContentService.getPostData(indices.postIndex, channelData));
@@ -34,7 +34,7 @@ export class PostContentComponent implements OnInit {
     });
   }
 
-  isChannelPostDataDefined(): boolean {
+  get isChannelPostDataDefined(): boolean {
     return !this.channelPostData;
   }
 

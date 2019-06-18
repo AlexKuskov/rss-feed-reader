@@ -15,7 +15,7 @@ export class ChannelsComponent implements OnInit {
     private channelPostContentService: ChannelPostContentService) { }
 
   ngOnInit() {
-    this.channelsService.getChannelTitles().subscribe(channelTitles => {
+    this.channelsService.channelTitles$.subscribe(channelTitles => {
       this.channelTitles = channelTitles;
     });
     this.channelPostContentService.getPostContentState().subscribe(postContentState => {

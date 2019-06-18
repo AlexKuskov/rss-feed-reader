@@ -27,11 +27,11 @@ export class StatisticsComponent implements OnInit {
   ngOnInit() {
     this.getChannelsNumber();
 
-    this.statisticsService.getChannelIndex().subscribe(channelIndex => {
+    this.statisticsService.channelIndex$.subscribe(channelIndex => {
       this.getChannelPostsNumber(channelIndex);
       this.getChannelAuthorsNumber(channelIndex);
     });
-    this.statisticsService.getChannelPostIndices().subscribe(indices => {
+    this.statisticsService.channelPostIndices$.subscribe(indices => {
       this.getPieChartData(indices.channelIndex, indices.postIndex);
     });
   }
@@ -70,15 +70,15 @@ export class StatisticsComponent implements OnInit {
         };
   }
 
-  isChannelPostsNumberDefined(): boolean {
+  get isChannelPostsNumberDefined(): boolean {
     return this.channelAuthorsNumber === undefined;
   }
 
-  isChannelAuthorsNumberDefined(): boolean {
+  get isChannelAuthorsNumberDefined(): boolean {
     return this.channelAuthorsNumber === undefined;
   }
 
-  isPieChartLabelsDefined(): boolean {
+  get isPieChartLabelsDefined(): boolean {
     return !this.pieChartLabels;
   }
 

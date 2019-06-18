@@ -37,7 +37,7 @@ export class ChannelsService {
     );
   }
 
-  getChannelTitles(): Observable<Array<string>> {   
+  get channelTitles$(): Observable<Array<string>> {   
     let channelTitles$ = new Observable<Array<string>>(observer => {
       let channelTitles: string[];
       let channelObservables: Array<Observable<ChannelData>> = this.getAllChannelObservables();

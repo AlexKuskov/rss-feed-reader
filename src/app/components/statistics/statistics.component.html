@@ -5,19 +5,19 @@
         <div class="statistics__amounts">
             Channel Posts: <br> 
             {{ channelPostsNumber }}
-            <span *ngIf="isChannelPostsNumberDefined()" class="statistics__hint">
+            <span *ngIf="isChannelPostsNumberDefined" class="statistics__hint">
                 Please click on a channel to see the number of its posts</span>
         </div>
         <div class="statistics__amounts">
             Channel Post Authors: <br> 
             {{ channelAuthorsNumber }}
-            <span *ngIf="isChannelAuthorsNumberDefined()" class="statistics__hint">
+            <span *ngIf="isChannelAuthorsNumberDefined" class="statistics__hint">
                 Please click on a channel to see the number of post authors </span>
         </div>
     </section>
     
     <section class="statistics__pie-container">
-        <span *ngIf="isPieChartLabelsDefined(); else pieChart" class="statistics__hint statistics__hint--lower">
+        <span *ngIf="isPieChartLabelsDefined; else pieChart" class="statistics__hint statistics__hint--lower">
             Please click on a post to see the frequency of the letters in the post</span>
         <ng-template #pieChart>
             <div class="statistics__pie-chart">
