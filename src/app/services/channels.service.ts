@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Observable, forkJoin } from 'rxjs';
-import { ChannelData } from '../models/ChannelData';
+import { ChannelData } from '../models/channel-data';
 import { errorHandler } from '../shared/utils';
 import { StatisticsService } from './statistics.service';
 import { ChannelPostContentService } from './channel-post-content.service';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ChannelPostData } from '../models/ChannelPostData';
+import { ChannelPostData } from '../models/channel-post-data';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
-import { ChannelData } from '../models/ChannelData';
+import { ChannelData } from '../models/channel-data';
 
 @Injectable({
   providedIn: 'root'

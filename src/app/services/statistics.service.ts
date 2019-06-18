@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { ChannelData } from '../models/ChannelData';
-import { ChannelPostData } from '../models/ChannelPostData';
-import { Indices } from '../models/Indices';
+import { ChannelData } from '../models/channel-data';
+import { ChannelPostData } from '../models/channel-post-data';
+import { Indices } from '../models/indices';
 import { distinct } from '../shared/utils';
 
 @Injectable({

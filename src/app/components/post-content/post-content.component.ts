@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ChannelsService } from '../../services/channels.service';
-import { ChannelPostData } from '../../models/ChannelPostData';
+import { ChannelPostData } from '../../models/channel-post-data';
 import { ChannelPostContentService } from 'src/app/services/channel-post-content.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { PostContentService } from 'src/app/services/post-content.service';

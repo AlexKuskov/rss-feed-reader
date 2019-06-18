@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ChannelsService } from './channels.service';
-import { ChannelPostData } from '../models/ChannelPostData';
+import { ChannelPostData } from '../models/channel-post-data';
 
 @Injectable({
   providedIn: 'root'
