@@ -1,19 +1,19 @@
-.component-container {
+.app {
     display: flex;
 }
 
-.component-container__app-channels {
+.app__channels {
     width: 15%;
 }
 
-.component-container__app-channel-posts {
+.app__channel-posts {
     width: 18%;
 }
 
-.component-container__app-post-content {
+.app__post-content {
     width: 50%;
 }
 
-.component-container__app-statistics {
+.app__statistics {
     width: 17%;
 }
