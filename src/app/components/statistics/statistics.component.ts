@@ -71,15 +71,15 @@ export class StatisticsComponent implements OnInit {
   }
 
   isChannelPostsNumberDefined(): boolean {
-    return this.channelPostsNumber == undefined;
+    return this.channelAuthorsNumber === undefined;
   }
 
   isChannelAuthorsNumberDefined(): boolean {
-    return this.channelAuthorsNumber == undefined;
+    return this.channelAuthorsNumber === undefined;
   }
 
   isPieChartLabelsDefined(): boolean {
-    return this.pieChartLabels == undefined;
+    return !this.pieChartLabels;
   }
 
 }

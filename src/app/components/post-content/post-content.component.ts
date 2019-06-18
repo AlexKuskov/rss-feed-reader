@@ -35,11 +35,11 @@ export class PostContentComponent implements OnInit {
   }
 
   isChannelPostDataDefined(): boolean {
-    return this.channelPostData == undefined;
+    return !this.channelPostData;
   }
 
   isPostAuthorDefined(postAuthor: string): boolean {
-    return postAuthor != '';
+    return postAuthor !== '';
   }
 
   isPostCategoriesDefined(categories: Array<string>): boolean {
