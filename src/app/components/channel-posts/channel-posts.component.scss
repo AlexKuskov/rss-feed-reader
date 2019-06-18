@@ -19,7 +19,6 @@
 }
 
 .channel-posts__post {
-    $odd_posts: '&:nth-child(odd)';
     display: flex;
     align-items: center;
     font-size: 0.8em;
@@ -33,16 +32,24 @@
     overflow: hidden;
     cursor: pointer;
 
-    &:active, #{$odd_posts}:active {
+    &:active {
         border: 1px solid rgb(45, 45, 45);
     }
     
-    &:hover, #{$odd_posts}:hover {
+    &:hover {
         background-color: #e7e7e7;
     }
 
-    #{$odd_posts} {
+    &:nth-child(odd) {
         background-color: rgb(168, 168, 168);
+
+        &:nth-child(odd):active {
+            border: 1px solid rgb(45, 45, 45);
+        }
+
+        &:nth-child(odd):hover {
+            background-color: #e7e7e7;
+        }
     }
 }
 
