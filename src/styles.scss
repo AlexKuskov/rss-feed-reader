@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~normalize.css';
+@import 'app/shared/variables';
 
 body {
     font-family: Verdana, Geneva, sans-serif;
-    margin: 0;
+    margin: var(--global--spacer--null);
 }
 
 ::-webkit-scrollbar {
@@ -11,13 +12,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: rgb(231, 231, 231); 
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: rgb(114, 114, 114); 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: rgb(45, 45, 45); 
 }

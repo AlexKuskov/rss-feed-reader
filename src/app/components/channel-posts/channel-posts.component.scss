@@ -1,13 +1,13 @@
 .channel-posts {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: var(--global--spacer--null);
+    padding: var(--global--spacer--null);
     position: relative;
     height: 100vh;
     width: 0;
-    background-color: rgb(216, 216, 216);
+    background-color: var(--global--panel--color);
     box-sizing: border-box;
-    user-select: none;
+    user-select: var(--global--user-select);
     transition: width 0.3s;
     overflow-y: auto;
     overflow-x: hidden;
@@ -19,12 +19,14 @@
 }
 
 .channel-posts__post {
+    $border-width: 1px solid;
+
     display: flex;
     align-items: center;
-    font-size: 0.8em;
+    font-size: var(--global--font-size--sm);
     box-sizing: border-box;
     position: relative;
-    border: 1px solid rgb(204, 204, 204);
+    border: $border-width rgb(204, 204, 204);
     background-color: rgb(204, 204, 204);
     width: 18vw;
     height: 10%;
@@ -33,22 +35,22 @@
     cursor: pointer;
 
     &:active {
-        border: 1px solid rgb(45, 45, 45);
+        border: $border-width rgb(45, 45, 45);
     }
     
     &:hover {
-        background-color: #e7e7e7;
+        background-color: var(--global--hover-item--color);
     }
 
     &:nth-child(odd) {
         background-color: rgb(168, 168, 168);
 
         &:nth-child(odd):active {
-            border: 1px solid rgb(45, 45, 45);
+            border: $border-width rgb(45, 45, 45);
         }
 
         &:nth-child(odd):hover {
-            background-color: #e7e7e7;
+            background-color: var(--global--hover-item--color);
         }
     }
 }

@@ -1,13 +1,15 @@
 $tags-vertical-padding: 2px;
+$content-horizontal-padding: 10px;
 $content-width: 100%;
 $animation-duration: 0.3s;
+$content-text-align: center;
 
 .post-content {
     position: absolute;
     top: 0;
     float: right;
     right: 17%;
-    font-size: 0.8rem;
+    font-size: var(--global--font-size--sm);
     height: 100%;
     width: 68%;
     background-color: rgb(255, 255, 255);
@@ -27,12 +29,12 @@ $animation-duration: 0.3s;
     align-content: center;
     flex-direction: column;
     
-    font-size: 1.4rem;
-    text-align: center;
-    color: rgb(114, 114, 114);
+    font-size: var(--global--font-size--lg);
+    text-align: $content-text-align;
+    color: var(--global--hint--color);
     width: $content-width;
     height: 100%;
-    user-select: none;
+    user-select: var(--global--user-select);
 
     transition: width $animation-duration;
 }
@@ -44,18 +46,18 @@ $animation-duration: 0.3s;
 }
 
 .post-content__title {
-    font-size: 1.5rem;
+    font-size: var(--global--font-size--xlg);
     width: $content-width;
-    text-align: center;
+    text-align: $content-text-align;
     margin-bottom: 5%;
-    font-weight: 400;
+    font-weight: var(--global--font-weight--normal);
 }
 
 .post-content__author-pubdate-section {
     width: $content-width;
-    font-weight: 700;
+    font-weight: var(--global--font-weight--bold);
     margin-bottom: 30px;
-    padding: 0 10px;
+    padding: 0 $content-horizontal-padding;
     box-sizing: border-box;
 }
 
@@ -69,7 +71,7 @@ $animation-duration: 0.3s;
 }
 
 .post-content__main-content {
-    padding: 0 10px;
+    padding: 0 $content-horizontal-padding;
     box-sizing: border-box;
 
     // it is necessary to use tags here, because provided Html data from server 
@@ -88,34 +90,34 @@ $animation-duration: 0.3s;
 
 .post-content__button-container {
     width: $content-width;
-    text-align: center;
+    text-align: $content-text-align;
     margin-bottom: 30px;
     margin-top: 15px;
 }
 
 .post-content__visit-website-btn {
     display: inline-block;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(45, 45, 45);
     border-radius: 50px;
     width: 200px;
     height: 40px;
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 1.2rem;
-    text-align: center;
+    color: rgb(45, 45, 45);
+    font-size: var(--global--font-size--md);
+    text-align: $content-text-align;
     line-height: 40px;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(204, 204, 204);
 }
 
 .post-content__categories-section {
-    padding: 0 10px;
+    padding: 0 $content-horizontal-padding;
     margin-bottom: 10px;
 }
 
 .post-content__tags-text {
     float: left;
-    font-weight: 700;
-    font-size: 0.8rem;
+    font-weight: var(--global--font-weight--bold);
+    font-size: var(--global--font-size--sm);
     padding: $tags-vertical-padding 0;
     margin-left: 5px;
 }
@@ -125,8 +127,8 @@ $animation-duration: 0.3s;
 }
 
 .post-content__category {
-    font-size: 0.7rem;
-    border: 1px solid rgb(0, 0, 0);
+    font-size: var(--global--font-size--xs);
+    border: 1px solid rgb(45, 45, 45);
     border-radius: 50px;
     margin: 0 5px;
     padding: $tags-vertical-padding 8px;

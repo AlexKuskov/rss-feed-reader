@@ -4,23 +4,25 @@ $statistics-content-width: 100%;
     height: 100vh;
     width: 100%;
     background-color: rgb(192, 192, 192);
-    user-select: none;
+    user-select: var(--global--user-select);
     overflow: hidden;
 }
 
 .statistics__title {
     width: $statistics-content-width;
     text-align: center;
-    font-weight: 400;
-    margin: 0;
+    font-weight: var(--global--font-weight--normal);
+    margin: var(--global--spacer--null);
 }
 
 .statistics__amounts-container {
+    $border-properties: 2px solid rgb(231, 231, 231);
+
     height: 50%;
     width: $statistics-content-width;
-    border-top: 2px solid rgb(231, 231, 231);
-    border-bottom: 2px solid rgb(231, 231, 231);
-    font-size: 1.2rem;
+    border-top: $border-properties;
+    border-bottom: $border-properties;
+    font-size: var(--global--font-size--md);
     padding: 0 3px;
 }
 
@@ -42,9 +44,9 @@ $statistics-content-width: 100%;
 }
 
 .statistics__hint {
-    font-size: 0.8rem;
-    color: rgb(114, 114, 114);
-    font-weight: 900;
+    font-size: var(--global--font-size--sm);
+    color: var(--global--hint--color);
+    font-weight: var(--global--font-weight--bold);
     line-height: 0.4rem;
 }
 
