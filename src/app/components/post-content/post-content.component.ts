@@ -13,7 +13,7 @@ import { PostContentService } from 'src/app/services/post-content.service';
 })
 export class PostContentComponent implements OnInit {
 
-  channelPostData: ChannelPostData[];
+  channelPostData: ChannelPostData;
   postContentState: boolean = false;
 
   constructor(private channelsService: ChannelsService, 
@@ -28,8 +28,7 @@ export class PostContentComponent implements OnInit {
 
     this.statisticsService.channelPostIndices$.subscribe(indices => {
       this.channelsService.getChannelDataById(indices.channelIndex).subscribe(channelData => {
-        this.channelPostData = [];
-        this.channelPostData.push(this.postContentService.getPostData(indices.postIndex, channelData));
+        this.channelPostData = this.postContentService.getPostData(indices.postIndex, channelData);
       });
     });
   }
