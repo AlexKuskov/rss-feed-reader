@@ -19,14 +19,14 @@
 }
 
 .channel-posts__post {
-    $border-width: 1px solid;
+    --border-width: 1px solid;
 
     display: flex;
     align-items: center;
     font-size: var(--global--font-size--sm);
     box-sizing: border-box;
     position: relative;
-    border: $border-width rgb(204, 204, 204);
+    border: var(--border-width) rgb(204, 204, 204);
     background-color: rgb(204, 204, 204);
     width: 18vw;
     height: 10%;
@@ -35,7 +35,7 @@
     cursor: pointer;
 
     &:active {
-        border: $border-width rgb(45, 45, 45);
+        border: var(--border-width) rgb(45, 45, 45);
     }
     
     &:hover {
@@ -46,7 +46,7 @@
         background-color: rgb(168, 168, 168);
 
         &:nth-child(odd):active {
-            border: $border-width rgb(45, 45, 45);
+            border: var(--border-width) rgb(45, 45, 45);
         }
 
         &:nth-child(odd):hover {

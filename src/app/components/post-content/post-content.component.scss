@@ -1,8 +1,10 @@
-$tags-vertical-padding: 2px;
-$content-horizontal-padding: 10px;
-$content-width: 100%;
-$animation-duration: 0.3s;
-$content-text-align: center;
+:root {
+    --tags-vertical-padding: 2px;
+    --content-horizontal-padding: 10px;
+    --content-width: 100%;
+    --animation-duration: 0.3s;
+    --content-text-align: center;
+}
 
 .post-content {
     position: absolute;
@@ -16,7 +18,7 @@ $content-text-align: center;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
-    transition: width $animation-duration;
+    transition: width var(--animation-duration);
 }
 
 .post-content--shrinked {
@@ -30,34 +32,34 @@ $content-text-align: center;
     flex-direction: column;
     
     font-size: var(--global--font-size--lg);
-    text-align: $content-text-align;
+    text-align: var(--content-text-align);
     color: var(--global--hint--color);
-    width: $content-width;
+    width: var(--content-width);
     height: 100%;
     user-select: var(--global--user-select);
 
-    transition: width $animation-duration;
+    transition: width var(--animation-duration);
 }
 
 .post-content__data-container {
     position: absolute;
     right: 0;
-    width: $content-width;
+    width: var(--content-width);
 }
 
 .post-content__title {
     font-size: var(--global--font-size--xlg);
-    width: $content-width;
-    text-align: $content-text-align;
+    width: var(--content-width);
+    text-align: var(--content-text-align);
     margin-bottom: 5%;
     font-weight: var(--global--font-weight--normal);
 }
 
 .post-content__author-pubdate-section {
-    width: $content-width;
+    width: var(--content-width);
     font-weight: var(--global--font-weight--bold);
     margin-bottom: 30px;
-    padding: 0 $content-horizontal-padding;
+    padding: 0 var(--content-horizontal-padding);
     box-sizing: border-box;
 }
 
@@ -71,7 +73,7 @@ $content-text-align: center;
 }
 
 .post-content__main-content {
-    padding: 0 $content-horizontal-padding;
+    padding: 0 var(--content-horizontal-padding);
     box-sizing: border-box;
 
     // it is necessary to use tags here, because provided Html data from server 
@@ -89,8 +91,8 @@ $content-text-align: center;
 }
 
 .post-content__button-container {
-    width: $content-width;
-    text-align: $content-text-align;
+    width: var(--content-width);
+    text-align: var(--content-text-align);
     margin-bottom: 30px;
     margin-top: 15px;
 }
@@ -104,13 +106,13 @@ $content-text-align: center;
     text-decoration: none;
     color: rgb(45, 45, 45);
     font-size: var(--global--font-size--md);
-    text-align: $content-text-align;
+    text-align: var(--content-text-align);
     line-height: 40px;
     background-color: rgb(204, 204, 204);
 }
 
 .post-content__categories-section {
-    padding: 0 $content-horizontal-padding;
+    padding: 0 var(--content-horizontal-padding);
     margin-bottom: 10px;
 }
 
@@ -118,7 +120,7 @@ $content-text-align: center;
     float: left;
     font-weight: var(--global--font-weight--bold);
     font-size: var(--global--font-size--sm);
-    padding: $tags-vertical-padding 0;
+    padding: var(--tags-vertical-padding) 0;
     margin-left: 5px;
 }
 
@@ -131,6 +133,6 @@ $content-text-align: center;
     border: 1px solid rgb(45, 45, 45);
     border-radius: 50px;
     margin: 0 5px;
-    padding: $tags-vertical-padding 8px;
+    padding: var(--tags-vertical-padding) 8px;
     line-height: 2.2em;
 }

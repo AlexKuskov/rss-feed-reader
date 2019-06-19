@@ -1,5 +1,3 @@
-$statistics-content-width: 100%;
-
 .statistics {
     height: 100vh;
     width: 100%;
@@ -9,19 +7,17 @@ $statistics-content-width: 100%;
 }
 
 .statistics__title {
-    width: $statistics-content-width;
     text-align: center;
     font-weight: var(--global--font-weight--normal);
     margin: var(--global--spacer--null);
 }
 
 .statistics__amounts-container {
-    $border-properties: 2px solid rgb(231, 231, 231);
+    --border-properties: 2px solid rgb(231, 231, 231);
 
     height: 50%;
-    width: $statistics-content-width;
-    border-top: $border-properties;
-    border-bottom: $border-properties;
+    border-top: var(--border-properties);
+    border-bottom: var(--border-properties);
     font-size: var(--global--font-size--md);
     padding: 0 3px;
 }
@@ -31,7 +27,6 @@ $statistics-content-width: 100%;
 }
 
 .statistics__pie-container {
-    width: $statistics-content-width;
     height: 50%;
     padding: 0 3px; 
 }
@@ -39,7 +34,7 @@ $statistics-content-width: 100%;
 .statistics__pie-chart {
     position: relative; 
     width: 180%;
-    right: 41%;
+    right: 39%;
     top: 10%;
 }
 
