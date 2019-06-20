@@ -5,7 +5,7 @@
     position: relative;
     height: 100vh;
     width: 0;
-    background-color: var(--global--panel--color);
+    background-color: var(--global--color--primary);
     box-sizing: border-box;
     user-select: var(--global--user-select);
     transition: width 0.3s;
@@ -15,7 +15,7 @@
 
 .channel-posts--opened-panel {
     width: 100%;
-    border: 2px solid rgb(45, 45, 45);
+    border: 2px solid var(--global--color--secondary-dark);
 }
 
 .channel-posts__post {
@@ -26,8 +26,8 @@
     font-size: var(--global--font-size--sm);
     box-sizing: border-box;
     position: relative;
-    border: var(--border-width) rgb(204, 204, 204);
-    background-color: rgb(204, 204, 204);
+    border: var(--border-width) var(--global--color--primary-dark);
+    background-color: var(--global--color--primary-dark);;
     width: 18vw;
     height: 10%;
     padding: 0 5px;
@@ -35,22 +35,22 @@
     cursor: pointer;
 
     &:active {
-        border: var(--border-width) rgb(45, 45, 45);
+        border: var(--border-width) var(--global--color--secondary-dark);
     }
     
     &:hover {
-        background-color: var(--global--hover-item--color);
+        background-color: var(--global--color--secondary-light);
     }
 
     &:nth-child(odd) {
-        background-color: rgb(168, 168, 168);
+        background-color: var(--global--color--primary-darkest);
 
         &:nth-child(odd):active {
-            border: var(--border-width) rgb(45, 45, 45);
+            border: var(--border-width) var(--global--color--secondary-dark);
         }
 
         &:nth-child(odd):hover {
-            background-color: var(--global--hover-item--color);
+            background-color: var(--global--color--secondary-light);
         }
     }
 }

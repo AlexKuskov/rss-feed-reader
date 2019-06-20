@@ -4,7 +4,7 @@
     padding: var(--global--spacer--null);
     height: 100vh;
     width: 100%;
-    background-color: var(--global--panel--color);
+    background-color: var(--global--color--primary);
     user-select: var(--global--user-select);
 }
 
@@ -14,17 +14,17 @@
     box-sizing: border-box;
     width: 100%;
     height: 10%;
-    border: var(--border-width) rgb(192, 192, 192);
+    border: var(--border-width) var(--global--color--primary-darker);
     padding: 20px 0;
     padding-left: 5px;
     cursor: pointer;
 
     &:active {
-        border: var(--border-width) rgb(45, 45, 45);
+        border: var(--border-width) var(--global--color--secondary-dark);
     }
 
     &:hover {
-        background-color: var(--global--hover-item--color);
+        background-color: var(--global--color--secondary-light);
     }
 }
 

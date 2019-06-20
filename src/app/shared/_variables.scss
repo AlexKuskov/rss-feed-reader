@@ -1,9 +1,15 @@
 :root {
     --global--user-select: none;
 
-    --global--panel--color: rgb(249, 249, 249);
-    --global--hint--color: rgb(114, 114, 114);
-    --global--hover-item--color: rgb(231, 231, 231);
+    --global--color--primary: rgb(249, 249, 249);
+    --global--color--primary-light: rgb(255, 255, 255);
+    --global--color--primary-dark: rgb(204, 204, 204);
+    --global--color--primary-darker: rgb(192, 192, 192);
+    --global--color--primary-darkest: rgb(168, 168, 168);
+    
+    --global--color--secondary: rgb(114, 114, 114);
+    --global--color--secondary-light: rgb(231, 231, 231);
+    --global--color--secondary-dark: rgb(45, 45, 45);
 
     --global--font-size--xs: 0.7rem;
     --global--font-size--sm: 0.8rem;

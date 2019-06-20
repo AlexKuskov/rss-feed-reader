@@ -1,9 +1,9 @@
 :root {
-    --tags-vertical-padding: 2px;
-    --content-horizontal-padding: 10px;
-    --content-width: 100%;
+    --vertical-padding: 2px;
+    --horizontal-padding: 10px;
+    --full-width: 100%;
     --animation-duration: 0.3s;
-    --content-text-align: center;
+    --text-align--center: center;
 }
 
 .post-content {
@@ -14,7 +14,7 @@
     font-size: var(--global--font-size--sm);
     height: 100%;
     width: 68%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--global--color--primary-light);
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
@@ -32,9 +32,9 @@
     flex-direction: column;
     
     font-size: var(--global--font-size--lg);
-    text-align: var(--content-text-align);
-    color: var(--global--hint--color);
-    width: var(--content-width);
+    text-align: var(--text-align--center);
+    color: var(--global--color--secondary);
+    width: var(--full-width);
     height: 100%;
     user-select: var(--global--user-select);
 
@@ -44,22 +44,22 @@
 .post-content__data-container {
     position: absolute;
     right: 0;
-    width: var(--content-width);
+    width: var(--full-width);
 }
 
 .post-content__title {
     font-size: var(--global--font-size--xlg);
-    width: var(--content-width);
-    text-align: var(--content-text-align);
+    width: var(--full-width);
+    text-align: var(--text-align--center);
     margin-bottom: 5%;
     font-weight: var(--global--font-weight--normal);
 }
 
 .post-content__author-pubdate-section {
-    width: var(--content-width);
+    width: var(--full-width);
     font-weight: var(--global--font-weight--bold);
     margin-bottom: 30px;
-    padding: 0 var(--content-horizontal-padding);
+    padding: 0 var(--horizontal-padding);
     box-sizing: border-box;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .post-content__main-content {
-    padding: 0 var(--content-horizontal-padding);
+    padding: 0 var(--horizontal-padding);
     box-sizing: border-box;
 
     // it is necessary to use tags here, because provided Html data from server 
@@ -91,28 +91,28 @@
 }
 
 .post-content__button-container {
-    width: var(--content-width);
-    text-align: var(--content-text-align);
+    width: var(--full-width);
+    text-align: var(--text-align--center);
     margin-bottom: 30px;
     margin-top: 15px;
 }
 
 .post-content__visit-website-btn {
     display: inline-block;
-    border: 1px solid rgb(45, 45, 45);
+    border: 1px solid var(--global--color--secondary-dark);
     border-radius: 50px;
     width: 200px;
     height: 40px;
     text-decoration: none;
-    color: rgb(45, 45, 45);
+    color: var(--global--color--secondary-dark);
     font-size: var(--global--font-size--md);
-    text-align: var(--content-text-align);
+    text-align: var(--text-align--center);
     line-height: 40px;
-    background-color: rgb(204, 204, 204);
+    background-color: var(--global--color--primary-dark);
 }
 
 .post-content__categories-section {
-    padding: 0 var(--content-horizontal-padding);
+    padding: 0 var(--horizontal-padding);
     margin-bottom: 10px;
 }
 
@@ -120,7 +120,7 @@
     float: left;
     font-weight: var(--global--font-weight--bold);
     font-size: var(--global--font-size--sm);
-    padding: var(--tags-vertical-padding) 0;
+    padding: var(--vertical-padding) 0;
     margin-left: 5px;
 }
 
@@ -130,9 +130,9 @@
 
 .post-content__category {
     font-size: var(--global--font-size--xs);
-    border: 1px solid rgb(45, 45, 45);
+    border: 1px solid var(--global--color--secondary-dark);
     border-radius: 50px;
     margin: 0 5px;
-    padding: var(--tags-vertical-padding) 8px;
+    padding: var(--vertical-padding) 8px;
     line-height: 2.2em;
 }
